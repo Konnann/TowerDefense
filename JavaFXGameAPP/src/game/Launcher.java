@@ -1,6 +1,6 @@
 package game;
 
-import MenuAndMain.Menu;
+import Menu.Menu;
 
 public class Launcher {
     public static void main(String[] args) {

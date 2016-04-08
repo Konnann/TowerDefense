@@ -1,5 +1,5 @@
 package game;
-import MenuAndMain.Menu;
+import Menu.Menu;
 
 public class Game  extends Menu implements Runnable{
 
