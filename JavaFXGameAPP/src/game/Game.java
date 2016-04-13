@@ -1,6 +1,9 @@
 package game;
 import display.Display;
+import gameStates.MenuState;
+import gameStates.State;
 import gameStates.State.STATE;
+import gameStates.StateManager;
 import graphics.ImageLoader;
 
 import java.awt.*;
@@ -20,36 +23,24 @@ public class Game implements Runnable{
 
     //variable to change states with
 
-    private STATE state = STATE.GAME;
+    private State state =null;
+    private State gameState,menuState;
 
 
     public Game(String name, int width, int height){
         this.name = name;
         this.width = width;
         this.height = height;
-
+        this.display = new Display(this.name, this.width, this.height);
     }
 
 
-
+    public  int getWidth() {
+        return width;
+    }
 
     private void initialize(){
-        //draw the game scene
-        this.display = new Display(this.name, this.width, this.height);
-
-    }
-
-    private void tick(){
-        if (state == STATE.GAME){
-            //Gameplay - put everything that updates/changes ingame here - position/health/etc.
-
-        }else if(state == STATE.MENU){
-            //write menu code here
-        }
-
-    }
-
-    private void render(){
+        //Initialize BufferStrategy Graphics
         this.bufferStrategy = this.display.getCanvas().getBufferStrategy();
 
         if(this.bufferStrategy == null){
@@ -58,21 +49,30 @@ public class Game implements Runnable{
         }
 
         this.graphics = this.bufferStrategy.getDrawGraphics();
+        //Initialize States
+        menuState=new MenuState(this.display,this.bufferStrategy,this.graphics);
 
-        if(state == STATE.GAME) {
-            //Gameplay - draw everything after it's updated here
-            this.graphics.drawImage(ImageLoader.loadImage("/gameBackground.png"), 0, 0, 1280, 720, null);
-        }else if(state == STATE.MENU){
-            //write menu code here
+    }
+
+    private void tick(){
+        if(StateManager.getState()== null) {
+            state = menuState;
+            StateManager.setState(state);
         }
+        StateManager.getState().tick();
+    }
 
-        this.graphics.dispose();
-        this.bufferStrategy.show();
+    private void render(){
+            StateManager.getState().render();
+
+
+
     }
 
 
     @Override
     public void run() {
+
 
     //First run the initialization, then the loop
         this.initialize();
