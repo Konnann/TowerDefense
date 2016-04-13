@@ -1,24 +1,73 @@
 package game;
-import Menu.Menu;
+import display.Display;
+import gameStates.State.STATE;
+import graphics.ImageLoader;
 
-public class Game  extends Menu implements Runnable{
+import java.awt.*;
+import java.awt.image.BufferStrategy;
 
-    //If "Play" is clicked this code is initialized;
+
+public class Game implements Runnable{
+    private String name;
+    private int width, height;
+
     private Thread thread;
     private boolean isRunning;
 
+    private Display display;
+    private BufferStrategy bufferStrategy;
+    private Graphics graphics;
+
+    //variable to change states with
+
+    private STATE state = STATE.GAME;
+
+
+    public Game(String name, int width, int height){
+        this.name = name;
+        this.width = width;
+        this.height = height;
+
+    }
+
+
+
+
     private void initialize(){
         //draw the game scene
-    }
-
-    private void update(){
-        //put everything that updates/changes here - position/health/etc.
+        this.display = new Display(this.name, this.width, this.height);
 
     }
 
-    private void draw(){
-        //draw everything after it's updated here
+    private void tick(){
+        if (state == STATE.GAME){
+            //Gameplay - put everything that updates/changes ingame here - position/health/etc.
 
+        }else if(state == STATE.MENU){
+            //write menu code here
+        }
+
+    }
+
+    private void render(){
+        this.bufferStrategy = this.display.getCanvas().getBufferStrategy();
+
+        if(this.bufferStrategy == null){
+            this.display.getCanvas().createBufferStrategy(2);
+            this.bufferStrategy =this.display.getCanvas().getBufferStrategy();
+        }
+
+        this.graphics = this.bufferStrategy.getDrawGraphics();
+
+        if(state == STATE.GAME) {
+            //Gameplay - draw everything after it's updated here
+            this.graphics.drawImage(ImageLoader.loadImage("/gameBackground.png"), 0, 0, 1280, 720, null);
+        }else if(state == STATE.MENU){
+            //write menu code here
+        }
+
+        this.graphics.dispose();
+        this.bufferStrategy.show();
     }
 
 
@@ -30,9 +79,10 @@ public class Game  extends Menu implements Runnable{
 
     //create the constant updating of the game - a.k.a. the loop
         while(isRunning == true){
-            update();
-            draw();
+            tick();
+            render();
         }
+        this.stop();
 
     }
     public synchronized void start(){
@@ -41,7 +91,7 @@ public class Game  extends Menu implements Runnable{
         thread = new Thread(this);
         thread.start();
         this.isRunning = true;
-        run();
+        this.run();
     }
     public synchronized void stop(){
         //Joins our thread with the original one, or in other words, stops it
