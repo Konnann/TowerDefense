@@ -4,7 +4,7 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
-    <ignored path="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/out/" />
+    <ignored path="$PROJECT_DIR$/../../JavaFXGameAPP/out/" />
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,7 +63,30 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/game/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3" vertical-offset="0" max-vertical-offset="3078">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Launcher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game/Launcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -80,36 +103,36 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/sample/Controller.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/sample/Main.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/Main/Main.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/gfx/ImageLoader.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/Interfaces/Flying.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/GameObjects/GameObject.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/GameObjects/Tauren.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/GameObjects/Enemy.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/GameObjects/Enemy/Enemy.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/Graphics/SpriteSheet.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/Graphics/ImageLoader.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/GameObjects/Enemy/Tauren.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/Display/Main.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/interfaces/Flying.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/MenuAndMain/Main.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/MenuAndMain/Display.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/graphics/ImageLoader.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/MenuAndMain/Menu.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/gameObjects/GameObject.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/graphics/SpriteSheet.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/states/States.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/states/MenuState.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/states/Menu.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/display/Display.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/Menu/Menu.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/states/State.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/gameObjects/Enemy/Enemy.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/gameObjects/Enemy/Tauren.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/game/Launcher.java" />
-        <option value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/game/Game.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/sample/Controller.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/Main/Main.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/gfx/ImageLoader.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/Interfaces/Flying.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/GameObjects/GameObject.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/GameObjects/Tauren.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/GameObjects/Enemy.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/GameObjects/Enemy/Enemy.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/Graphics/SpriteSheet.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/Graphics/ImageLoader.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/GameObjects/Enemy/Tauren.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/Display/Main.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/interfaces/Flying.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/MenuAndMain/Main.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/MenuAndMain/Display.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/graphics/ImageLoader.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/MenuAndMain/Menu.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/gameObjects/GameObject.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/graphics/SpriteSheet.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/states/States.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/states/MenuState.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/states/Menu.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/display/Display.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/Menu/Menu.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/states/State.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/gameObjects/Enemy/Enemy.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/gameObjects/Enemy/Tauren.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/game/Launcher.java" />
+        <option value="$PROJECT_DIR$/../../JavaFXGameAPP/src/game/Game.java" />
       </list>
     </option>
   </component>
@@ -154,10 +177,59 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaFXGameAPP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaFXGameAPP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaFXGameAPP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaFXGameAPP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaFXGameAPP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaFXGameAPP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaFXGameAPP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -173,15 +245,16 @@
     <property name="dynamic.classpath" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../JavaFXGameAPP" />
     <property name="FullScreen" value="false" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="RunManager" selected="Application.Launcher">
-    <configuration default="false" name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="MenuAndMain.*" />
@@ -189,11 +262,11 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="MenuAndMain.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://." />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
@@ -211,11 +284,11 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="game.Launcher" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://." />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
@@ -233,11 +306,11 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="MenuAndMain.Menu" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://." />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
@@ -261,11 +334,11 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="game.Game" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://." />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
@@ -292,7 +365,7 @@
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../JavaFXGameAPP" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -393,12 +466,12 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://." />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
@@ -419,7 +492,7 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../JavaFXGameAPP" />
       <option name="OUTPUT_DIRECTORY" />
       <option name="ANNOTATION_TYPE" />
       <option name="ENV_VARIABLES" />
@@ -434,41 +507,18 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="Main" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="sample.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="sample.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="JavaFXGameAPP" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <list size="5">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Launcher" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Menu" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Game" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Launcher" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Menu" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Game" />
     </list>
     <recent_temporary>
       <list size="4">
         <item index="0" class="java.lang.String" itemvalue="Application.Launcher" />
         <item index="1" class="java.lang.String" itemvalue="Application.Game" />
         <item index="2" class="java.lang.String" itemvalue="Application.Menu" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Main (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Main" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -502,7 +552,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -514,7 +564,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30590716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30590716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25104168" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
@@ -556,7 +606,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/github/JavaFXGameAPP/src/MenuAndMain/Menu.java</url>
+          <url>file://$PROJECT_DIR$/../../JavaFXGameAPP/src/MenuAndMain/Menu.java</url>
           <line>131</line>
           <properties />
           <option name="timeStamp" value="1" />
@@ -571,7 +621,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/Helpful/JavaFX_Tower_Defense-master/src/game/Main.java">
+    <entry file="file://$PROJECT_DIR$/../../../Helpful/JavaFX_Tower_Defense-master/src/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1890">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -599,10 +649,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/SoftUni/Programing Fundamentals/Java basics/Teamwork/Helpful/JavaFX_Tower_Defense-master/src/game/Main.java">
+    <entry file="file://$PROJECT_DIR$/../../../Helpful/JavaFX_Tower_Defense-master/src/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9097826" vertical-offset="432" max-vertical-offset="2052">
           <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3" vertical-offset="0" max-vertical-offset="3078">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
