@@ -11,7 +11,7 @@ public class SpriteSheet {
         this.image = image;
     }
     //Crops part of image - for animation purposes
-    public BufferedImage crop(int x, int y, int width, int height,Point2D coordinates){
+    public BufferedImage crop(int x, int y, int width, int height){
         return this.image.getSubimage(x, y, width, height);
     }
 

@@ -1,9 +1,11 @@
 package game;
 import display.Display;
+import gameStates.GameState;
 import gameStates.MenuState;
 import gameStates.State;
 import gameStates.State.STATE;
 import gameStates.StateManager;
+import graphics.Assets;
 import graphics.ImageLoader;
 
 import java.awt.*;
@@ -23,7 +25,7 @@ public class Game implements Runnable{
 
     //variable to change states with
 
-    private State state =null;
+    private State state = null;
     private State gameState,menuState;
 
 
@@ -40,6 +42,7 @@ public class Game implements Runnable{
     }
 
     private void initialize(){
+        Assets.init();
         //Initialize BufferStrategy Graphics
         this.bufferStrategy = this.display.getCanvas().getBufferStrategy();
 
@@ -51,6 +54,7 @@ public class Game implements Runnable{
         this.graphics = this.bufferStrategy.getDrawGraphics();
         //Initialize States
         menuState=new MenuState(this.display,this.bufferStrategy,this.graphics);
+        gameState=new GameState(this.display,this.bufferStrategy,this.graphics);
 
     }
 
@@ -65,17 +69,13 @@ public class Game implements Runnable{
     private void render(){
             StateManager.getState().render();
 
-
-
     }
 
 
     @Override
     public void run() {
-
-
     //First run the initialization, then the loop
-        this.initialize();
+         this.initialize();
 
     //create the constant updating of the game - a.k.a. the loop
         while(isRunning == true){

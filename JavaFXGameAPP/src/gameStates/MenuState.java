@@ -2,6 +2,7 @@ package gameStates;
 
 import display.Display;
 import game.Game;
+import graphics.Assets;
 import graphics.ImageLoader;
 
 import javax.swing.*;
@@ -35,7 +36,7 @@ public class MenuState extends State{
         Graphics2D g2d=(Graphics2D)g;
 
         Font font=new Font("arial",Font.BOLD,50);
-         g.drawImage(ImageLoader.loadImage("/background.jpg"), 0, 0, 1280, 720, null);
+         g.drawImage(Assets.menuBackground, 0, 0, 1280, 720, null);
 
         g2d.setColor(Color.WHITE);
         g2d.draw(playButton);
