@@ -24,12 +24,13 @@ public class GameState extends State {
     @Override
     public void tick() {
         tauren.tick();
-
+        System.out.println("Entered in gameClass");
     }
 
     @Override
     public void render() {
         Graphics g = this.graphics;
+        g.clearRect(0, 0, 1280,780);
         g.drawImage(Assets.gameBackground, 0, 0, 1280, 720, null);
         tauren.render(this.graphics);
         g.dispose();

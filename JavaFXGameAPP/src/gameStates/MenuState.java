@@ -7,7 +7,10 @@ import graphics.ImageLoader;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
+
+import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
 
 
 public class MenuState extends State{
@@ -16,6 +19,8 @@ public class MenuState extends State{
     private BufferStrategy bufferStrategy;
     private Graphics graphics;
 
+    private State gameState;
+
     private Rectangle playButton=new Rectangle(1280/2,150,100,50);
 
 
@@ -23,11 +28,20 @@ public class MenuState extends State{
         this.display=display;
         this.bufferStrategy=bufferStrategy;
         this.graphics=graphics;
+        initialize();
+
+    }
+
+    private void initialize(){
+        gameState=new GameState(this.display,this.bufferStrategy,this.graphics);
+        display.getCanvas().addMouseListener(new MouseInput(gameState));
+
 
     }
 
 
     public void tick() {
+
 
     }
 

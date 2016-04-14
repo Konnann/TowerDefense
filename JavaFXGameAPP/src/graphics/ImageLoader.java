@@ -14,6 +14,7 @@ public class ImageLoader {
             e.printStackTrace();
         }
         //if nothing is found return null
+        System.out.println("not found");
         return null;
     }
 

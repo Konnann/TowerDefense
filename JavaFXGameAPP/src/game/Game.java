@@ -3,7 +3,6 @@ import display.Display;
 import gameStates.GameState;
 import gameStates.MenuState;
 import gameStates.State;
-import gameStates.State.STATE;
 import gameStates.StateManager;
 import graphics.Assets;
 import graphics.ImageLoader;
@@ -26,7 +25,7 @@ public class Game implements Runnable{
     //variable to change states with
 
     private State state = null;
-    private State gameState,menuState;
+    private State menuState;
 
 
     public Game(String name, int width, int height){
@@ -34,11 +33,6 @@ public class Game implements Runnable{
         this.width = width;
         this.height = height;
         this.display = new Display(this.name, this.width, this.height);
-    }
-
-
-    public  int getWidth() {
-        return width;
     }
 
     private void initialize(){
@@ -52,9 +46,9 @@ public class Game implements Runnable{
         }
 
         this.graphics = this.bufferStrategy.getDrawGraphics();
-        //Initialize States
+        //Initialize MenuState
         menuState=new MenuState(this.display,this.bufferStrategy,this.graphics);
-        gameState=new GameState(this.display,this.bufferStrategy,this.graphics);
+
 
     }
 
@@ -77,14 +71,50 @@ public class Game implements Runnable{
     //First run the initialization, then the loop
          this.initialize();
 
-    //create the constant updating of the game - a.k.a. the loop
-        while(isRunning == true){
-            tick();
-            render();
-        }
-        this.stop();
+        int fps = 30;
+        //1 000 000 000 nanoseconds in a second. Thus we measure time in nanoseconds
+        //to be more specific. Maximum allowed time to run the tick() and render() methods
+        double timePerTick = 1_000_000_000.0 / fps;
+        //How much time we have until we need to call our tick() and render() methods
+        double delta = 0;
+        //The current time in nanoseconds
+        long now;
+        //Returns the amount of time in nanoseconds that our computer runs.
+        long lastTime = System.nanoTime();
+        long timer = 0;
+        int ticks = 0;
 
+        while (isRunning) {
+            //Sets the now variable to the current time in nanoseconds
+            now = System.nanoTime();
+            //Amount of time passed divided by the max amount of time allowed.
+            delta += (now-lastTime) / timePerTick;
+            //Adding to the timer the time passed
+            timer += now - lastTime;
+            //Setting the lastTime with the values of now time after we have calculated the delta
+            lastTime = now;
+
+            //If enough time has passed we need to tick() and render() to achieve 60 fps
+            if (delta >= 1) {
+                tick();
+                render();
+                //Reset the delta
+                ticks++;
+                delta--;
+            }
+
+            if (timer >= 1_000_000_000) {
+                System.out.println("Ticks and Frames: " + ticks);
+                ticks = 0;
+                timer = 0;
+            }
+        }
+
+        //Calls the stop method to ensure everything has been stopped
+
+        this.stop();
     }
+
     public synchronized void start(){
 
         //Initialized a new thread to start our game on

@@ -1,27 +1,42 @@
 package gameStates;
 
+import display.Display;
+
+import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+
 
 public class MouseInput implements MouseListener {
-    int gameWidth=1280;
 
 
+    private Display display;
+    private BufferStrategy bufferStrategy;
+    private Graphics graphics;
+
+    private int gameWidth=1280;
+    private State gameState;
+
+    public MouseInput(State gameState) {
+
+        this.gameState=gameState;
+    }
 
     @Override
+
     public void mouseClicked(MouseEvent e) {
 
     }
 
 
     public void mousePressed(MouseEvent e) {
-       // State gameState=new gameState(arguments)
-        int mx=e.getX();
-        int my=e.getY();
 
-        if (mx>=gameWidth/2+120 && mx<=gameWidth/2+220){
-       //     StateManager.setState(gameState);
-        }
+      
+        System.out.println("Enter");
+        StateManager.setState(gameState);
+
     }
 
     @Override
