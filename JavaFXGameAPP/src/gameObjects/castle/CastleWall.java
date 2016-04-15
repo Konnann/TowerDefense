@@ -1,5 +1,6 @@
 package gameObjects.castle;
 
+import game.Game;
 import graphics.Assets;
 
 import java.awt.*;
@@ -14,7 +15,7 @@ public class CastleWall {
     private BufferedImage wallSprite = Assets.castleWall;
 
     private int x = 0;
-    private int y = (720 - spriteHeight);
+    private int y = (Game.getHeight() - spriteHeight);
 
     public Rectangle boundingBox = new Rectangle(this.spriteWidth, this.spriteHeight);
 
@@ -37,12 +38,10 @@ public class CastleWall {
         g.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
     }
 
-
-    public int getHealth() {
-        return health;
-    }
     public void increaseHealth(int healthIncrease){
         this.health += healthIncrease;
     }
+    public void takeDamage(int damage){this.health -= damage;}
+
 }
 

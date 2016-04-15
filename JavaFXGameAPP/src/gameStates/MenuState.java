@@ -1,6 +1,7 @@
 package gameStates;
 
 import display.Display;
+import game.MouseInput;
 import graphics.Assets;
 import java.awt.*;
 import java.awt.image.BufferStrategy;

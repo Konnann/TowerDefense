@@ -5,7 +5,7 @@ import gameStates.MenuState;
 import gameStates.State;
 import gameStates.StateManager;
 import graphics.Assets;
-import graphics.ImageLoader;
+
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -13,7 +13,9 @@ import java.awt.image.BufferStrategy;
 
 public class Game implements Runnable{
     private String name;
-    private int width, height;
+
+
+    private static int width, height;
 
     private Thread thread;
     private boolean isRunning;
@@ -37,7 +39,7 @@ public class Game implements Runnable{
 
     private void initialize(){
         Assets.init();
-        //Initialize BufferStrategy Graphics
+
 
         //Initialize MenuState
         menuState=new MenuState(this.display,this.bufferStrategy,this.graphics);
@@ -127,6 +129,10 @@ public class Game implements Runnable{
         }
 
     }
+
+
+    public static int getHeight() {return height;}
+
 
 
 }

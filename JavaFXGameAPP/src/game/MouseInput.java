@@ -1,6 +1,8 @@
-package gameStates;
+package game;
 
 import display.Display;
+import gameStates.State;
+import gameStates.StateManager;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;

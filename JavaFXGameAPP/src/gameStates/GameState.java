@@ -2,31 +2,35 @@ package gameStates;
 
 import display.Display;
 import gameObjects.castle.CastleWall;
-import graphics.Assets;
 import gameObjects.enemy.Tauren;
+import graphics.Assets;
+import graphics.SpawnEnemies;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.io.File;
 
 public class GameState extends State {
 
     private Display display;
     private BufferStrategy bufferStrategy;
     private Graphics graphics;
-
-    private Tauren tauren = new Tauren();
     private CastleWall wall = new CastleWall();
+    private SpawnEnemies spawn = new SpawnEnemies();
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
         this.display = display;
         this.bufferStrategy = bufferStrategy;
         this.graphics = graphics;
-
+        this.spawn.addEnemies();
     }
 
     @Override
     public void tick() {
-        wall.tick();
-        tauren.tick();
+        this.wall.tick();
+        this.spawn.tick();
+
 
     }
 
@@ -41,13 +45,13 @@ public class GameState extends State {
         }
         this.graphics = this.bufferStrategy.getDrawGraphics();
 
-        //Start drawing
-        graphics.drawImage(Assets.gameBackground, 0, 0, 1280, 720, null);
-        wall.render(this.graphics);
-        tauren.render(this.graphics);
-        //End drawing
+        //START DRAWING
+        this.graphics.drawImage(Assets.gameBackground,0, 0, null);
+        this.wall.render(this.graphics);
+        this.spawn.render(this.graphics);
+        //END DRAWING
 
-        graphics.dispose();
+        this.graphics.dispose();
         this.bufferStrategy.show();
     }
 

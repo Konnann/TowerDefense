@@ -2,18 +2,22 @@ package gameObjects.enemy;
 import gameObjects.castle.CastleWall;
 import graphics.Assets;
 import graphics.SpriteSheet;
+import javax.swing.Timer;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.Date;
 
 public class Tauren extends Enemy {
     private Graphics graphics;
-    private int x = 1280;            //position of character on canvas
-    private int y = 500;            //..
+    private int x = 1280;            //position of character on canvas 1280
+    private int y;            //..
 
     private int health = 250;
     private int damage = 10;
-    private int velocity = 5;        //speed
+    private double velocity = 0.3;        //speed
     private int goldWorth = 30;      //The reward when you kill the monster
 
     private boolean isDead = false;
@@ -22,16 +26,18 @@ public class Tauren extends Enemy {
     private SpriteSheet taurenSprite = Assets.tauren;
     private int spriteHeight = 86;
     private int spriteWidth = 100;
-    private int walkFrames = 4;                 //walking frames in spritesheet
+    private int walkFrames = 4;                //walking frames in spritesheet
     private int attackFrames;
     private int col = 0;                        //Spritesheet column
     private int row = 1;                        //Spritesheet row
     private BufferedImage currentSprite;
 
-    private Rectangle boundingBox = new Rectangle(this.spriteWidth, this.spriteHeight);
+    public Rectangle boundingBox = new Rectangle(this.spriteWidth, this.spriteHeight);
 
 
-    public Tauren(){
+    public Tauren(int x, int y){
+        this.y = y;
+        this.x = x;
     }
 
 
@@ -45,21 +51,33 @@ public class Tauren extends Enemy {
         this.col++;
         this.col %= walkFrames;
 
-        //update enemy position
-        this.x -= this.velocity;
+       // if(isAttacking){
+            //to get attack animation sprites
+            //row = 2;
+
+       // }else {
+            //update enemy position
+
+            x -= this.velocity;
+        //}
 
         //enemies stop at end of screen , for testing purposes
-        if (this.x <= 82) {
-            this.x = 82;
+        if (x <= 82) {
+            x = 82;
         }
+        System.out.printf("%d %d\n", x, y);
 
     }
     @Override
     public void render(Graphics g)  {
         this.graphics = g;
-        currentSprite = Assets.tauren.crop(this.col * spriteWidth, 0, spriteWidth, spriteHeight);
-        g.drawImage(currentSprite, this.x, this.y, null);
 
+            currentSprite = Assets.tauren.crop(col * spriteWidth, 0, spriteWidth, spriteHeight);
+            g.drawImage(currentSprite, x, y, null);
+
+        if(isAttacking){
+
+        }
         //Test draw bounding boxes
         g.setColor(Color.red);
         g.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
@@ -81,4 +99,9 @@ public class Tauren extends Enemy {
         }
         return false;
     }
+
+   // public void setAttacking(boolean isAttacking) {
+   //     this.isAttacking = isAttacking;
+   // }
+
 }

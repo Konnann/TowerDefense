@@ -1,11 +1,15 @@
 package gameObjects.enemy;
 
 import gameObjects.GameObject;
+import gameObjects.castle.CastleWall;
 
 import java.awt.*;
 
 public abstract class Enemy extends GameObject {
-    //I'll put methods here that will be appliable to the enemies, like when they're slowed by attacks or health bars;
+
+    public Rectangle boundingBox;
+    public boolean isAttacking;
+
     public abstract void tick();
     public abstract void render(Graphics g);
 
@@ -17,6 +21,11 @@ public abstract class Enemy extends GameObject {
 
         healthPoints = healthPoints - damage;
         return healthPoints;
+    }
+    public static void intersect(Enemy enemy, CastleWall wall){
+        if(enemy.boundingBox.intersects(wall.boundingBox)){
+            enemy.isAttacking = true;
+        }
     }
 
 }
