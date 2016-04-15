@@ -1,36 +1,53 @@
 package gameStates;
 
 import display.Display;
+import gameObjects.Weapons.Crossbow;
+import gameObjects.Weapons.Towers;
 import gameObjects.castle.CastleWall;
 import gameObjects.enemy.Tauren;
 import graphics.Assets;
 import graphics.SpawnEnemies;
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.io.File;
+import java.awt.image.BufferedImage;
 
 public class GameState extends State {
 
     private Display display;
     private BufferStrategy bufferStrategy;
     private Graphics graphics;
+
+    private State gameState,menuState;
+
     private CastleWall wall = new CastleWall();
+    private Towers tower = new Towers();
+    private Crossbow crossbow = new Crossbow();
     private SpawnEnemies spawn = new SpawnEnemies();
+    private BufferedImage returnInMenuButton,exitButton;
+
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
         this.display = display;
         this.bufferStrategy = bufferStrategy;
         this.graphics = graphics;
         this.spawn.addEnemies();
+
+        initialize();
+
+    }
+
+    private void initialize(){
+        returnInMenuButton = Assets.smallerButtons.crop(151, 338, 50, 52);
+        exitButton = Assets.smallerButtons.crop(435,231,49,49);
+
     }
 
     @Override
     public void tick() {
         this.wall.tick();
         this.spawn.tick();
-
+        this.tower.tick();
+        this.crossbow.tick();
 
     }
 
@@ -45,11 +62,18 @@ public class GameState extends State {
         }
         this.graphics = this.bufferStrategy.getDrawGraphics();
 
-        //START DRAWING
-        this.graphics.drawImage(Assets.gameBackground,0, 0, null);
+        //Start drawing
+        graphics.clearRect(0, 0, 1280, 720);
+        graphics.drawImage(Assets.gameBackground, 0, 0, 1280, 720, null);
+        this.graphics.drawImage(returnInMenuButton, 1160,7, null);
+        this.graphics.drawImage(exitButton,1220,10,null);
+
         this.wall.render(this.graphics);
         this.spawn.render(this.graphics);
-        //END DRAWING
+        this.tower.render(this.graphics);
+        this.crossbow.render(this.graphics);
+
+        //End drawing
 
         this.graphics.dispose();
         this.bufferStrategy.show();

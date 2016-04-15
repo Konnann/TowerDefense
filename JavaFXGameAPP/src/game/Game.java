@@ -113,11 +113,14 @@ public class Game implements Runnable{
 
     public synchronized void start(){
 
-        //Initialized a new thread to start our game on
+     if (isRunning){
+         return;
+     }
+        this.isRunning = true;
         thread = new Thread(this);
         thread.start();
-        this.isRunning = true;
-        this.run();
+
+
     }
     public synchronized void stop(){
         //Joins our thread with the original one, or in other words, stops it
