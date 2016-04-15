@@ -1,8 +1,9 @@
 package gameStates;
 
 import display.Display;
+import gameObjects.castle.CastleWall;
 import graphics.Assets;
-import gameObjects.Enemy.Tauren;
+import gameObjects.enemy.Tauren;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 
@@ -12,7 +13,8 @@ public class GameState extends State {
     private BufferStrategy bufferStrategy;
     private Graphics graphics;
 
-    private Tauren tauren = new Tauren(0, 0, 0, 0);
+    private Tauren tauren = new Tauren();
+    private CastleWall wall = new CastleWall();
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
         this.display = display;
@@ -23,17 +25,29 @@ public class GameState extends State {
 
     @Override
     public void tick() {
+        wall.tick();
         tauren.tick();
-        System.out.println("Entered in gameClass");
+
     }
 
     @Override
     public void render() {
-        Graphics g = this.graphics;
-        g.clearRect(0, 0, 1280,780);
-        g.drawImage(Assets.gameBackground, 0, 0, 1280, 720, null);
+
+        //BufferStrategy and Graphics
+        this.bufferStrategy = this.display.getCanvas().getBufferStrategy();
+        if(this.bufferStrategy == null){
+            this.display.getCanvas().createBufferStrategy(2);
+            this.bufferStrategy =this.display.getCanvas().getBufferStrategy();
+        }
+        this.graphics = this.bufferStrategy.getDrawGraphics();
+
+        //Start drawing
+        graphics.drawImage(Assets.gameBackground, 0, 0, 1280, 720, null);
+        wall.render(this.graphics);
         tauren.render(this.graphics);
-        g.dispose();
+        //End drawing
+
+        graphics.dispose();
         this.bufferStrategy.show();
     }
 

@@ -1,4 +1,4 @@
-package gameObjects.Enemy;
+package gameObjects.enemy;
 
 import gameObjects.GameObject;
 
@@ -9,8 +9,14 @@ public abstract class Enemy extends GameObject {
     public abstract void tick();
     public abstract void render(Graphics g);
 
-    public void takeDamage(int damage, int healthPoints) {
+    public int fly(int height, int xPosition){
+        return xPosition += height;
+    }
+
+    public int takeDamage(int damage, int healthPoints) {
 
         healthPoints = healthPoints - damage;
+        return healthPoints;
     }
+
 }

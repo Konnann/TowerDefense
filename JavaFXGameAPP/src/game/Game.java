@@ -38,16 +38,10 @@ public class Game implements Runnable{
     private void initialize(){
         Assets.init();
         //Initialize BufferStrategy Graphics
-        this.bufferStrategy = this.display.getCanvas().getBufferStrategy();
 
-        if(this.bufferStrategy == null){
-            this.display.getCanvas().createBufferStrategy(2);
-            this.bufferStrategy =this.display.getCanvas().getBufferStrategy();
-        }
-
-        this.graphics = this.bufferStrategy.getDrawGraphics();
         //Initialize MenuState
         menuState=new MenuState(this.display,this.bufferStrategy,this.graphics);
+
 
 
     }
@@ -61,6 +55,7 @@ public class Game implements Runnable{
     }
 
     private void render(){
+
             StateManager.getState().render();
 
     }
@@ -70,7 +65,6 @@ public class Game implements Runnable{
     public void run() {
     //First run the initialization, then the loop
          this.initialize();
-
         int fps = 30;
         //1 000 000 000 nanoseconds in a second. Thus we measure time in nanoseconds
         //to be more specific. Maximum allowed time to run the tick() and render() methods
