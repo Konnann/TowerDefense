@@ -16,7 +16,7 @@ public class MouseInput implements MouseListener {
     private BufferStrategy bufferStrategy;
     private Graphics graphics;
 
-    private int gameWidth=1280;
+
     private State gameState;
 
     public MouseInput(State gameState) {
@@ -32,10 +32,24 @@ public class MouseInput implements MouseListener {
 
 
     public void mousePressed(MouseEvent e) {
+        int mx=e.getX();
+        int my=e.getY();
 
-      
-        System.out.println("Enter");
-        StateManager.setState(gameState);
+        if(mx>=596&&mx<=684) {
+            if(my>=250&&my<=343) {
+                StateManager.setState(gameState);
+            }
+        }
+        if(mx>=596&&mx<=681) {
+            if(my>=356&&my<=441) {
+                System.out.println("Credits");
+            }
+        }
+        if(mx>=594&&mx<=689) {
+            if(my>=450&&my<=535) {
+                System.exit(0);
+            }
+        }
 
     }
 
