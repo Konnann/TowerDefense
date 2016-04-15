@@ -13,7 +13,7 @@ public class MenuState extends State{
     private BufferStrategy bufferStrategy;
     private Graphics g;
 
-    private State gameState;
+    private State gameState,menuState;
     private BufferedImage playButton,creditsButton,exitButton;
 
     public MenuState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
@@ -26,7 +26,7 @@ public class MenuState extends State{
 
     private void initialize(){
         gameState = new GameState(this.display,this.bufferStrategy,this.g);
-        display.getCanvas().addMouseListener(new MouseInput(gameState));
+        display.getCanvas().addMouseListener(new MouseInput(gameState,menuState));
         playButton = Assets.Buttons.crop(28, 17, 88, 93);
         creditsButton=Assets.Buttons.crop(272,316,85,85);
         exitButton=Assets.Buttons.crop(775,415,93,85);
@@ -52,9 +52,7 @@ public class MenuState extends State{
         this.g.drawImage(Assets.menuBackground, 0, 0, 1280, 720, null);
 
 
-      //  this.g.setColor(Color.BLACK);
-      //   String tower="Tower Defense";
-     //   this.g.drawString(tower,500,200);
+
 
         this.g.drawImage(playButton, 596,250, null);
         this.g.drawImage(creditsButton,596,356,null);
