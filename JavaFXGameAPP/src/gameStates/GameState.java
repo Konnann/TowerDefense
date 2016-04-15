@@ -59,6 +59,7 @@ public class GameState extends State {
         this.graphics = this.bufferStrategy.getDrawGraphics();
 
         //Start drawing
+        graphics.clearRect(0, 0, 1280, 720);
         graphics.drawImage(Assets.gameBackground, 0, 0, 1280, 720, null);
         this.graphics.drawImage(returnInMenuButton, 1160,7, null);
         this.graphics.drawImage(exitButton,1220,10,null);

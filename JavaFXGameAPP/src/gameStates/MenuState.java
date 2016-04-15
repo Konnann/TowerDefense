@@ -38,7 +38,7 @@ public class MenuState extends State{
 
 
     }
-
+@Override
     public void render() {
         this.bufferStrategy = this.display.getCanvas().getBufferStrategy();
 
@@ -49,6 +49,7 @@ public class MenuState extends State{
 
         this.g = this.bufferStrategy.getDrawGraphics();
 
+        g.clearRect(0, 0, 1280, 720);
         this.g.drawImage(Assets.menuBackground, 0, 0, 1280, 720, null);
 
 
@@ -57,7 +58,8 @@ public class MenuState extends State{
         this.g.drawImage(playButton, 596,250, null);
         this.g.drawImage(creditsButton,596,356,null);
         this.g.drawImage(exitButton,594,450,null);
-        this.g.dispose();
+
         this.bufferStrategy.show();
+    this.g.dispose();
     }
 }
