@@ -3,8 +3,9 @@ package gameStates;
 import display.Display;
 import gameObjects.Weapons.Crossbow;
 import gameObjects.Weapons.Towers;
+import gameObjects.Weapons.Weapons;
 import gameObjects.castle.CastleWall;
-import gameObjects.enemy.Tauren;
+import gameObjects.Enemy.Tauren;
 import graphics.Assets;
 import graphics.SpawnEnemies;
 import java.awt.*;
@@ -24,6 +25,8 @@ public class GameState extends State {
     private Crossbow crossbow = new Crossbow();
     private SpawnEnemies spawn = new SpawnEnemies();
     private BufferedImage returnInMenuButton,exitButton;
+    private Weapons arrow = new Weapons();
+    private Weapons magic = new Weapons();
 
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
@@ -48,6 +51,8 @@ public class GameState extends State {
         this.spawn.tick();
         this.tower.tick();
         this.crossbow.tick();
+        this.arrow.tick();
+        this.magic.tick();
 
     }
 
@@ -72,6 +77,8 @@ public class GameState extends State {
         this.spawn.render(this.graphics);
         this.tower.render(this.graphics);
         this.crossbow.render(this.graphics);
+        this.arrow.render(this.graphics);
+        this.magic.render(this.graphics);
 
         //End drawing
 

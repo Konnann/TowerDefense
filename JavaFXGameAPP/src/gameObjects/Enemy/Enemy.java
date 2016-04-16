@@ -1,4 +1,4 @@
-package gameObjects.enemy;
+package gameObjects.Enemy;
 
 import gameObjects.GameObject;
 import gameObjects.castle.CastleWall;

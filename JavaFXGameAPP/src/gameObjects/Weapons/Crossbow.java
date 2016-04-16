@@ -13,8 +13,8 @@ public class Crossbow extends Weapons{
     private int crossbowHeight = 186;
     private BufferedImage crossbowSprite = Assets.crossbow;
 
-    private int x = 83;
-    private int y = 316;
+    private int x = - crossbowWidth/2;
+    private int y = 260;
 
     public Rectangle boundingBox = new Rectangle(this.crossbowWidth, this.crossbowHeight);
 

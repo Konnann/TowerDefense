@@ -1,4 +1,4 @@
-package gameObjects.enemy;
+package gameObjects.Enemy;
 import gameObjects.castle.CastleWall;
 import graphics.Assets;
 import graphics.SpriteSheet;

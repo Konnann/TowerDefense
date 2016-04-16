@@ -14,6 +14,8 @@ public class Assets {
     public static File spawnEnemies;
     public static BufferedImage tower;
     public static BufferedImage crossbow;
+    public static BufferedImage Arrow;
+    public static SpriteSheet Magic;
     public static SpriteSheet Buttons,smallerButtons;
 
     public static void init(){
@@ -26,6 +28,8 @@ public class Assets {
         spawnEnemies = new File("resources"+ File.separator +"SpawnEnemies.txt");
         tower = ImageLoader.loadImage("resources" + File.separator + "Tower_86x256.png");
         crossbow = ImageLoader.loadImage("resources" + File.separator + "Crossbow_164 x158.png");
+        Arrow = ImageLoader.loadImage("resources" + File.separator + "Arrow_100x24.png");
+        Magic = new SpriteSheet(ImageLoader.loadImage("resources" + File.separator + "magicProjectile_25x25.png"));
         Buttons= new SpriteSheet(ImageLoader.loadImage("resources" + File.separator + "Button.png"));
         smallerButtons=new SpriteSheet(ImageLoader.loadImage("resources" + File.separator + "Button.png"));
     }

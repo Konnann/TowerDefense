@@ -1,8 +1,8 @@
 package graphics;
 
 
-import gameObjects.enemy.Enemy;
-import gameObjects.enemy.Tauren;
+import gameObjects.Enemy.Enemy;
+import gameObjects.Enemy.Tauren;
 
 import java.awt.*;
 import java.io.*;
