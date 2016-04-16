@@ -65,7 +65,6 @@ public class Tauren extends Enemy {
         if (x <= 82) {
             x = 82;
         }
-        System.out.printf("%d %d\n", x, y);
 
     }
     @Override

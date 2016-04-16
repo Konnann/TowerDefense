@@ -27,7 +27,7 @@ public class Assets {
         tower = ImageLoader.loadImage("resources" + File.separator + "Tower_86x256.png");
         crossbow = ImageLoader.loadImage("resources" + File.separator + "Crossbow_164 x158.png");
         Buttons= new SpriteSheet(ImageLoader.loadImage("resources" + File.separator + "Button.png"));
-        smallerButtons=new SpriteSheet(ImageLoader.loadImage("resources" + File.separator + "InGameButtons.png"));
+        smallerButtons=new SpriteSheet(ImageLoader.loadImage("resources" + File.separator + "Button.png"));
     }
 
 

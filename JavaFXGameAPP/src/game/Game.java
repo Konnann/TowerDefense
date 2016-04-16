@@ -57,9 +57,7 @@ public class Game implements Runnable{
     }
 
     private void render(){
-
             StateManager.getState().render();
-
     }
 
 
@@ -119,8 +117,6 @@ public class Game implements Runnable{
         this.isRunning = true;
         thread = new Thread(this);
         thread.start();
-
-
     }
     public synchronized void stop(){
         //Joins our thread with the original one, or in other words, stops it

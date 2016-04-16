@@ -5,9 +5,6 @@ import graphics.Assets;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-/**
- * Created by Plamen on 4/15/2016.
- */
 public class Crossbow extends Weapons{
 
     private int health = 300;
