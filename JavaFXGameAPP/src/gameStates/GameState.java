@@ -26,7 +26,8 @@ public class GameState extends State {
     private SpawnEnemies spawn = new SpawnEnemies();
     private BufferedImage returnInMenuButton,exitButton;
     private Weapons arrow = new Weapons();
-    private Weapons magic = new Weapons();
+    private Weapons firstMagic = new Weapons();
+    private Weapons secondMagic = new Weapons();
 
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
@@ -52,7 +53,8 @@ public class GameState extends State {
         this.tower.tick();
         this.crossbow.tick();
         this.arrow.tick();
-        this.magic.tick();
+        this.firstMagic.tick();
+        this.secondMagic.tick();
 
     }
 
@@ -78,7 +80,8 @@ public class GameState extends State {
         this.tower.render(this.graphics);
         this.crossbow.render(this.graphics);
         this.arrow.render(this.graphics);
-        this.magic.render(this.graphics);
+        this.firstMagic.render(this.graphics);
+        this.secondMagic.render(this.graphics);
 
         //End drawing
 

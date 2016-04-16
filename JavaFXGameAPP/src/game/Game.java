@@ -1,4 +1,5 @@
 package game;
+
 import display.Display;
 import gameStates.GameState;
 import gameStates.MenuState;
@@ -11,7 +12,7 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 
-public class Game implements Runnable{
+public class Game implements Runnable {
     private String name;
 
 
@@ -30,41 +31,40 @@ public class Game implements Runnable{
     private State menuState;
 
 
-    public Game(String name, int width, int height){
+    public Game(String name, int width, int height) {
         this.name = name;
         this.width = width;
         this.height = height;
         this.display = new Display(this.name, this.width, this.height);
     }
 
-    private void initialize(){
+    private void initialize() {
         Assets.init();
 
 
         //Initialize MenuState
-        menuState=new MenuState(this.display,this.bufferStrategy,this.graphics);
-
+        menuState = new MenuState(this.display, this.bufferStrategy, this.graphics);
 
 
     }
 
-    private void tick(){
-        if(StateManager.getState()== null) {
+    private void tick() {
+        if (StateManager.getState() == null) {
             state = menuState;
             StateManager.setState(state);
         }
         StateManager.getState().tick();
     }
 
-    private void render(){
-            StateManager.getState().render();
+    private void render() {
+        StateManager.getState().render();
     }
 
 
     @Override
     public void run() {
-    //First run the initialization, then the loop
-         this.initialize();
+        //First run the initialization, then the loop
+        this.initialize();
         int fps = 30;
         //1 000 000 000 nanoseconds in a second. Thus we measure time in nanoseconds
         //to be more specific. Maximum allowed time to run the tick() and render() methods
@@ -82,7 +82,7 @@ public class Game implements Runnable{
             //Sets the now variable to the current time in nanoseconds
             now = System.nanoTime();
             //Amount of time passed divided by the max amount of time allowed.
-            delta += (now-lastTime) / timePerTick;
+            delta += (now - lastTime) / timePerTick;
             //Adding to the timer the time passed
             timer += now - lastTime;
             //Setting the lastTime with the values of now time after we have calculated the delta
@@ -109,16 +109,17 @@ public class Game implements Runnable{
         this.stop();
     }
 
-    public synchronized void start(){
+    public synchronized void start() {
 
-     if (isRunning){
-         return;
-     }
+        if (isRunning) {
+            return;
+        }
         this.isRunning = true;
         thread = new Thread(this);
         thread.start();
     }
-    public synchronized void stop(){
+
+    public synchronized void stop() {
         //Joins our thread with the original one, or in other words, stops it
         try {
             thread.join();
@@ -130,8 +131,9 @@ public class Game implements Runnable{
     }
 
 
-    public static int getHeight() {return height;}
-
+    public static int getHeight() {
+        return height;
+    }
 
 
 }

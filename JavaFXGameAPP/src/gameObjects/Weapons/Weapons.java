@@ -27,8 +27,10 @@ public class Weapons {
 
     //Magic Initialization
     private Graphics graphics;
-    private int magicX = 70 + 95/2;
-    private int magicY = 715 - 595;
+    private int firstMagicX = 70 + 95/2;
+    private int firstMagicY = 715 - 595;
+    private int secondMagicX = 70 + 95/2;
+    private int secondMagicY = 690 - 191;
 
     private SpriteSheet magicSprite = Assets.Magic;
     private int magicWidth = 25;
@@ -44,8 +46,8 @@ public class Weapons {
 
     private boolean isShooting = false;
 
-    public Rectangle magicBoundingBox = new Rectangle(this.magicWidth, this.magicHeight);
-
+    public Rectangle firstMagicBoundingBox = new Rectangle(this.magicWidth, this.magicHeight);
+    public Rectangle secondMagicBoundingBox = new Rectangle(this.magicWidth,this.magicHeight);
 
     public Weapons() {
     }
@@ -56,7 +58,8 @@ public class Weapons {
         this.arrowBoundingBox.setBounds(arrowX,arrowY,arrowWidht,arrowHeight);
 
         //Setting magic's bounding box's bounds
-        this.magicBoundingBox.setBounds(magicX,magicY,magicWidth,magicHeight);
+        this.firstMagicBoundingBox.setBounds(firstMagicX,firstMagicY,magicWidth,magicHeight);
+        this.secondMagicBoundingBox.setBounds(secondMagicX,secondMagicY,magicWidth,magicHeight);
         //Animate
         //update enemy position
         //enemies stop at end of screen , for testing purposes
@@ -72,9 +75,11 @@ public class Weapons {
         //Drawing magic projectile and its surrounding bounding box
         this.graphics = g;
         currentSprite = Assets.Magic.crop(this.col * magicWidth, 0, magicWidth, magicHeight);
-        g.drawImage(currentSprite, this.magicX, this.magicY, null);
+        g.drawImage(currentSprite, this.firstMagicX, this.firstMagicY, null);
+        g.drawImage(currentSprite, this.secondMagicX, this.secondMagicY, null);
         g.setColor(Color.blue);
-        g.drawRect(this.magicBoundingBox.x,this.magicBoundingBox.y,this.magicBoundingBox.width,this.magicBoundingBox.height);
+        g.drawRect(this.firstMagicBoundingBox.x,this.firstMagicBoundingBox.y,this.firstMagicBoundingBox.width,this.firstMagicBoundingBox.height);
+        g.drawRect(this.secondMagicBoundingBox.x,this.secondMagicBoundingBox.y,this.secondMagicBoundingBox.width,this.secondMagicBoundingBox.height);
 
     }
 }
