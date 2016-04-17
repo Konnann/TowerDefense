@@ -8,6 +8,8 @@ import gameObjects.castle.CastleWall;
 import gameObjects.Enemy.Tauren;
 import graphics.Assets;
 import graphics.SpawnEnemies;
+import graphics.SpriteSheet;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -28,7 +30,7 @@ public class GameState extends State {
     private Weapons arrow = new Weapons();
     private Weapons firstMagic = new Weapons();
     private Weapons secondMagic = new Weapons();
-
+    public BufferedImage[] walkingLeft;
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
         this.display = display;

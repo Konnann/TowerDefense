@@ -14,10 +14,6 @@ import java.awt.image.BufferStrategy;
 public class MouseInput implements MouseListener {
 
 
-    private Display display;
-    private BufferStrategy bufferStrategy;
-    private Graphics graphics;
-
 
     private State gameState,menuState;
 
@@ -35,41 +31,47 @@ public class MouseInput implements MouseListener {
 
 
     public void mousePressed(MouseEvent e) {
-        int mx=e.getX();
-        int my=e.getY();
-       //Main Menu
-        //playButton
-        if(mx>=596&&mx<=684) {
-            if(my>=250&&my<=343) {
-                StateManager.setState(gameState);
-            }
-        }
-
-        //CreditsButton
-        if(mx>=596&&mx<=681) {
-            if(my>=356&&my<=441) {
-                System.out.println("Credits");
-            }
-        }
-        //ExitButton
-        if(mx>=594&&mx<=689) {
-            if(my>=450&&my<=535) {
-                System.exit(0);
-            }
-        }
+        int mx = e.getX();
+        int my = e.getY();
 
 
+        if (StateManager.getState() != gameState) {
+
+            //Main Menu
+
+            //playButton
+            if (mx >= 596 && mx <= 684) {
+                if (my >= 250 && my <= 343) {
+                    StateManager.setState(gameState);
+                }
+            }
+            //CreditsButton
+            if (mx >= 596 && mx <= 681) {
+                if (my >= 356 && my <= 441) {
+                    System.out.println("Credits");
+                }
+            }
+            //ExitButton
+            if (mx >= 594 && mx <= 689) {
+                if (my >= 450 && my <= 535) {
+                    System.exit(0);
+                }
+            }
+
+        }
         //In Game Menu
         //MenuButton
-        if(mx>=1160&&mx<=1210) {
-            if(my>=7&&my<=59) {
-                StateManager.setState(menuState);
+        if (StateManager.getState() == gameState) {
+            if (mx >= 1160 && mx <= 1210) {
+                if (my >= 7 && my <= 59) {
+                    StateManager.setState(menuState);
+                }
             }
-        }
-        //ExitButton
-        if(mx>=1220&&mx<=1269) {
-            if(my>=10&&my<=59) {
-                System.exit(0);
+            //ExitButton
+            if (mx >= 1220 && mx <= 1269) {
+                if (my >= 10 && my <= 59) {
+                    System.exit(0);
+                }
             }
         }
     }

@@ -1,4 +1,5 @@
 package gameObjects.Enemy;
+import game.Animation;
 import gameObjects.castle.CastleWall;
 import graphics.Assets;
 import graphics.SpriteSheet;
@@ -31,13 +32,30 @@ public class Tauren extends Enemy {
     private int col = 0;                        //Spritesheet column
     private int row = 1;                        //Spritesheet row
     private BufferedImage currentSprite;
-
+    private int frameCount=0;
+    private int frameDelay=1;
+    private int currentFrame=0;
+    private int totalFrames=4;
+    private Animation animation;
     public Rectangle boundingBox = new Rectangle(this.spriteWidth, this.spriteHeight);
-
+    private BufferedImage[] walkingLeft=new BufferedImage[4];
 
     public Tauren(int x, int y){
         this.y = y;
         this.x = x;
+        initialize();
+    }
+
+    public void initialize(){
+
+        walkingLeft[3]=Assets.tauren.crop(7,0,80,86);
+        walkingLeft[2]=Assets.tauren.crop(104,0,86,86);
+        walkingLeft[1]=Assets.tauren.crop(199,0,98,86);
+        walkingLeft[0]=Assets.tauren.crop(312,0,8,86);
+
+            Animation walkLeft = new Animation(walkingLeft, 5);
+            animation=walkLeft;
+
     }
 
 
@@ -46,10 +64,13 @@ public class Tauren extends Enemy {
 
         //Update bounding box position
         this.boundingBox.setBounds(this.x, this.y, this.spriteWidth, this.spriteHeight);
-
+        animation.update();
         //Animate
-        this.col++;
-        this.col %= walkFrames;
+       // this.col++;
+//
+
+
+
 
        // if(isAttacking){
             //to get attack animation sprites
@@ -70,9 +91,13 @@ public class Tauren extends Enemy {
     @Override
     public void render(Graphics g)  {
         this.graphics = g;
+        //this.col++;
+       // this.col%=walkFrames;
+       // currentSprite = Assets.tauren.crop(this.col * spriteWidth, 0, spriteWidth, spriteHeight);
 
-            currentSprite = Assets.tauren.crop(col * spriteWidth, 0, spriteWidth, spriteHeight);
-            g.drawImage(currentSprite, x, y, null);
+
+            g.drawImage(animation.getSprite(), x, y, null);
+
 
         if(isAttacking){
 
