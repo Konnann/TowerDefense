@@ -1,4 +1,4 @@
-package gameObjects.castle;
+package gameObjects.PlayerAssets;
 
 import game.Game;
 import graphics.Assets;
@@ -6,7 +6,7 @@ import graphics.Assets;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class CastleWall {
+public class CastleWall extends PlayerAssets{
 
     private int health = 500;
 

@@ -22,7 +22,6 @@ public class SpawnEnemies {
     }
 
     public void tick(){
-
         //Initialize the tick method for all the enemies in the array
         for (int col = 0; col < numberOfColumns ; col++) {
             for (int row = 0; row < 5; row++) {

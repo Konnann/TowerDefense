@@ -1,15 +1,12 @@
 package gameObjects.Enemy;
-import game.Animation;
-import gameObjects.castle.CastleWall;
+import gameObjects.PlayerAssets.PlayerAssets;
+import graphics.Animation;
+import gameObjects.PlayerAssets.CastleWall;
 import graphics.Assets;
 import graphics.SpriteSheet;
-import javax.swing.Timer;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.util.Date;
 
 public class Tauren extends Enemy {
     private Graphics graphics;
@@ -25,20 +22,20 @@ public class Tauren extends Enemy {
     private boolean isAttacking = false;
 
     private SpriteSheet taurenSprite = Assets.tauren;
-    private int spriteHeight = 86;
-    private int spriteWidth = 100;
+    private int walkingHeight = 86;
+    private int walkingWidth = 100;
+    private int attackingHeight = 100;
+    private int attackingWidth = 115;
     private int walkFrames = 4;                //walking frames in spritesheet
-    private int attackFrames;
+    private int attackFrames = 6;
     private int col = 0;                        //Spritesheet column
     private int row = 1;                        //Spritesheet row
-    private BufferedImage currentSprite;
-    private int frameCount=0;
-    private int frameDelay=1;
-    private int currentFrame=0;
-    private int totalFrames=4;
     private Animation animation;
-    public Rectangle boundingBox = new Rectangle(this.spriteWidth, this.spriteHeight);
-    private BufferedImage[] walkingLeft=new BufferedImage[4];
+    public Rectangle boundingBox = new Rectangle(this.walkingWidth, this.walkingHeight);
+    private BufferedImage[] walkingLeft = new BufferedImage[walkFrames];
+    private BufferedImage[] attacking = new BufferedImage[attackFrames];
+    private Animation walkLeft = new Animation(walkingLeft, 5);
+    private Animation attack = new Animation(attacking, 5);
 
     public Tauren(int x, int y){
         this.y = y;
@@ -47,14 +44,18 @@ public class Tauren extends Enemy {
     }
 
     public void initialize(){
+        for (int i = 0; i < walkingLeft.length ; i++) {
+            row = 0;
+            walkingLeft[i] = Assets.tauren.crop(col, row, walkingWidth, walkingHeight);
+            col += walkingWidth;
+        }
+        for (int i = 0; i < attacking.length; i++) {
+            col = 0;
+            row += walkingHeight;
+            attacking[i] = Assets.tauren.crop(col, row, walkingWidth, walkingHeight);
+        }
 
-        walkingLeft[3]=Assets.tauren.crop(7,0,80,86);
-        walkingLeft[2]=Assets.tauren.crop(104,0,86,86);
-        walkingLeft[1]=Assets.tauren.crop(199,0,98,86);
-        walkingLeft[0]=Assets.tauren.crop(312,0,8,86);
-
-            Animation walkLeft = new Animation(walkingLeft, 5);
-            animation=walkLeft;
+        animation = walkLeft;
 
     }
 
@@ -63,24 +64,29 @@ public class Tauren extends Enemy {
     public void tick(){
 
         //Update bounding box position
-        this.boundingBox.setBounds(this.x, this.y, this.spriteWidth, this.spriteHeight);
+        if(isAttacking == false) {
+            this.boundingBox.setBounds(this.x, this.y, this.walkingWidth, this.walkingHeight);
+        }else{
+            this.boundingBox.setBounds(this.x, this.y, this.attackingWidth, this.attackingHeight);
+        }
+        if(isAttacking){
+            animation = attack;
+        }
         animation.update();
-        //Animate
-       // this.col++;
+
+
 //
 
 
 
 
-       // if(isAttacking){
-            //to get attack animation sprites
-            //row = 2;
+        if(isAttacking){
+            //animation = attack
 
-       // }else {
+        }else {
             //update enemy position
-
             x -= this.velocity;
-        //}
+        }
 
         //enemies stop at end of screen , for testing purposes
         if (x <= 82) {
@@ -91,11 +97,6 @@ public class Tauren extends Enemy {
     @Override
     public void render(Graphics g)  {
         this.graphics = g;
-        //this.col++;
-       // this.col%=walkFrames;
-       // currentSprite = Assets.tauren.crop(this.col * spriteWidth, 0, spriteWidth, spriteHeight);
-
-
             g.drawImage(animation.getSprite(), x, y, null);
 
 

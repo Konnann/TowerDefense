@@ -1,7 +1,7 @@
 package gameObjects.Enemy;
 
 import gameObjects.GameObject;
-import gameObjects.castle.CastleWall;
+import gameObjects.PlayerAssets.CastleWall;
 
 import java.awt.*;
 

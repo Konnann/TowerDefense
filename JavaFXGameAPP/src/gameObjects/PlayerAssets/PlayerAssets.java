@@ -1,4 +1,4 @@
-package gameObjects.Weapons;
+package gameObjects.PlayerAssets;
 
 import graphics.Assets;
 import graphics.SpriteSheet;
@@ -6,10 +6,8 @@ import graphics.SpriteSheet;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-/**
- * Created by Plamen on 4/15/2016.
- */
-public class Weapons {
+public class PlayerAssets {
+    public Rectangle boundingBox;
 
     //Arrow Initialization
     private int arrowX = 0;
@@ -49,7 +47,7 @@ public class Weapons {
     public Rectangle firstMagicBoundingBox = new Rectangle(this.magicWidth, this.magicHeight);
     public Rectangle secondMagicBoundingBox = new Rectangle(this.magicWidth,this.magicHeight);
 
-    public Weapons() {
+    public PlayerAssets() {
     }
 
     public void tick() {

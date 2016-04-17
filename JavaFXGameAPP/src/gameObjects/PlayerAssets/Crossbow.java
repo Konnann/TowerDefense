@@ -1,11 +1,11 @@
-package gameObjects.Weapons;
+package gameObjects.PlayerAssets;
 
 import graphics.Assets;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Crossbow extends Weapons{
+public class Crossbow extends PlayerAssets {
 
     private int health = 300;
 

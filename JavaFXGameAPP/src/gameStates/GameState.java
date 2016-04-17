@@ -1,14 +1,12 @@
 package gameStates;
 
 import display.Display;
-import gameObjects.Weapons.Crossbow;
-import gameObjects.Weapons.Towers;
-import gameObjects.Weapons.Weapons;
-import gameObjects.castle.CastleWall;
-import gameObjects.Enemy.Tauren;
+import gameObjects.PlayerAssets.Crossbow;
+import gameObjects.PlayerAssets.Towers;
+import gameObjects.PlayerAssets.PlayerAssets;
+import gameObjects.PlayerAssets.CastleWall;
 import graphics.Assets;
 import graphics.SpawnEnemies;
-import graphics.SpriteSheet;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -22,14 +20,14 @@ public class GameState extends State {
 
     private State gameState,menuState;
 
-    private CastleWall wall = new CastleWall();
+    private PlayerAssets wall = new CastleWall();
     private Towers tower = new Towers();
     private Crossbow crossbow = new Crossbow();
     private SpawnEnemies spawn = new SpawnEnemies();
     private BufferedImage returnInMenuButton,exitButton;
-    private Weapons arrow = new Weapons();
-    private Weapons firstMagic = new Weapons();
-    private Weapons secondMagic = new Weapons();
+    private PlayerAssets arrow = new PlayerAssets();
+    private PlayerAssets firstMagic = new PlayerAssets();
+    private PlayerAssets secondMagic = new PlayerAssets();
     public BufferedImage[] walkingLeft;
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {

@@ -1,11 +1,11 @@
-package gameObjects.Weapons;
+package gameObjects.PlayerAssets;
 
 import graphics.Assets;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Towers extends Weapons{
+public class Towers extends PlayerAssets {
     private int health = 250;
 
     private int towerWidth = 95;
