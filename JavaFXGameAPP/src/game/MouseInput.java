@@ -60,17 +60,27 @@ public class MouseInput implements MouseListener {
 
         }
         //In Game Menu
-        //MenuButton
+
+
+        //Pause Button
         if (StateManager.getState() == gameState) {
-            if (mx >= 1160 && mx <= 1210) {
-                if (my >= 7 && my <= 59) {
-                    StateManager.setState(menuState);
+            if (mx >= 1100 && mx <= 1149) {
+                if (my >= 9 && my <= 57) {
+                    //PauseButton
                 }
             }
-            //ExitButton
-            if (mx >= 1220 && mx <= 1269) {
-                if (my >= 10 && my <= 59) {
-                    System.exit(0);
+            //MenuButton
+            if (StateManager.getState() == gameState) {
+                if (mx >= 1160 && mx <= 1210) {
+                    if (my >= 7 && my <= 59) {
+                        StateManager.setState(menuState);
+                    }
+                }
+                //ExitButton
+                if (mx >= 1220 && mx <= 1269) {
+                    if (my >= 10 && my <= 59) {
+                        System.exit(0);
+                    }
                 }
             }
         }

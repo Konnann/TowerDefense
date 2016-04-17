@@ -49,11 +49,11 @@ public class Tauren extends Enemy {
             walkingLeft[i] = Assets.tauren.crop(col, row, walkingWidth, walkingHeight);
             col += walkingWidth;
         }
-        for (int i = 0; i < attacking.length; i++) {
-            col = 0;
-            row += walkingHeight;
-            attacking[i] = Assets.tauren.crop(col, row, walkingWidth, walkingHeight);
-        }
+//        for (int i = 0; i < attacking.length; i++) {
+//            col = 0;
+//            row += walkingHeight;
+//            attacking[i] = Assets.tauren.crop(col, row, walkingWidth, walkingHeight);
+//        }
 
         animation = walkLeft;
 

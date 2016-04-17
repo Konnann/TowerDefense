@@ -1,6 +1,7 @@
 package gameStates;
 
 import display.Display;
+import game.MouseMoving;
 import gameObjects.PlayerAssets.Crossbow;
 import gameObjects.PlayerAssets.Towers;
 import gameObjects.PlayerAssets.PlayerAssets;
@@ -24,11 +25,11 @@ public class GameState extends State {
     private Towers tower = new Towers();
     private Crossbow crossbow = new Crossbow();
     private SpawnEnemies spawn = new SpawnEnemies();
-    private BufferedImage returnInMenuButton,exitButton;
+    private BufferedImage pauseButton,returnInMenuButton,exitButton;
     private PlayerAssets arrow = new PlayerAssets();
     private PlayerAssets firstMagic = new PlayerAssets();
     private PlayerAssets secondMagic = new PlayerAssets();
-    public BufferedImage[] walkingLeft;
+
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
         this.display = display;
@@ -41,6 +42,8 @@ public class GameState extends State {
     }
 
     private void initialize(){
+        display.getCanvas().addMouseMotionListener(new MouseMoving());
+        pauseButton=Assets.smallerButtons.crop(15,340,49,48);
         returnInMenuButton = Assets.smallerButtons.crop(151, 338, 50, 52);
         exitButton = Assets.smallerButtons.crop(435,231,49,49);
 
@@ -72,6 +75,7 @@ public class GameState extends State {
         //Start drawing
         graphics.clearRect(0, 0, 1280, 720);
         graphics.drawImage(Assets.gameBackground, 0, 0, 1280, 720, null);
+        this.graphics.drawImage(pauseButton, 1100,9, null);
         this.graphics.drawImage(returnInMenuButton, 1160,7, null);
         this.graphics.drawImage(exitButton,1220,10,null);
 
