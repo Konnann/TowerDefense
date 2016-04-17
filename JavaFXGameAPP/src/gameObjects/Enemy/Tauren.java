@@ -24,8 +24,8 @@ public class Tauren extends Enemy {
     private SpriteSheet taurenSprite = Assets.tauren;
     private int walkingHeight = 86;
     private int walkingWidth = 100;
-    private int attackingHeight = 100;
-    private int attackingWidth = 115;
+    private int attackingHeight = 95;
+    private int attackingWidth = 100;
     private int walkFrames = 4;                //walking frames in spritesheet
     private int attackFrames = 6;
     private int col = 0;                        //Spritesheet column
@@ -34,8 +34,8 @@ public class Tauren extends Enemy {
     public Rectangle boundingBox = new Rectangle(this.walkingWidth, this.walkingHeight);
     private BufferedImage[] walkingLeft = new BufferedImage[walkFrames];
     private BufferedImage[] attacking = new BufferedImage[attackFrames];
-    private Animation walkLeft = new Animation(walkingLeft, 5);
-    private Animation attack = new Animation(attacking, 5);
+    private Animation attack,walkLeft;
+
 
     public Tauren(int x, int y){
         this.y = y;
@@ -48,13 +48,18 @@ public class Tauren extends Enemy {
             row = 0;
             walkingLeft[i] = Assets.tauren.crop(col, row, walkingWidth, walkingHeight);
             col += walkingWidth;
-        }
-//        for (int i = 0; i < attacking.length; i++) {
-//            col = 0;
-//            row += walkingHeight;
-//            attacking[i] = Assets.tauren.crop(col, row, walkingWidth, walkingHeight);
-//        }
 
+        }
+        walkLeft = new Animation(walkingLeft, 7);
+        col=0;
+        for (int i = 0; i < attacking.length; i++) {
+
+            row =91;
+
+            attacking[i] = Assets.tauren.crop(col,row , attackingWidth, attackingHeight);
+            col+=117;
+       }
+        attack = new Animation(attacking, 7);
         animation = walkLeft;
 
     }
@@ -68,8 +73,9 @@ public class Tauren extends Enemy {
             this.boundingBox.setBounds(this.x, this.y, this.walkingWidth, this.walkingHeight);
         }else{
             this.boundingBox.setBounds(this.x, this.y, this.attackingWidth, this.attackingHeight);
+
         }
-        if(isAttacking){
+        if(true){
             animation = attack;
         }
         animation.update();
