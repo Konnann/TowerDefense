@@ -11,12 +11,12 @@ import java.util.Set;
 import static javax.swing.text.StyledEditorKit.*;
 
 public class Tower extends PlayerAssets implements BuildingEntity{
-    private int hitPoints = 250;
+    private int health = 250;
 
     private int towerWidth = 95;
     private int towerHeight = 191;
     private int towerRange = 600;
-    private int health = towerWidth;
+    private int healthBar = towerWidth;
     private BufferedImage towerSprite = Assets.tower;
 
     private int x = 83;
@@ -24,7 +24,7 @@ public class Tower extends PlayerAssets implements BuildingEntity{
 
     public Rectangle boundingBox;
     public Rectangle TowerRange = new Rectangle(this.towerRange,this.towerHeight + towerHeight/2);
-    public Rectangle TowerHealthBar = new Rectangle(this.health,7);
+    public Rectangle TowerHealthBar = new Rectangle(this.healthBar,7);
 
 
     //Create a tower
@@ -36,6 +36,10 @@ public class Tower extends PlayerAssets implements BuildingEntity{
     }
 
     public void tick() {
+        System.out.println(" tower health" + " " + health);
+        if (health <= 0){
+            System.out.println("tower destroyed");
+        }
 
     }
 
@@ -71,6 +75,11 @@ public class Tower extends PlayerAssets implements BuildingEntity{
     @Override
     public Rectangle getBounds() {
         return boundingBox;
+    }
+
+    @Override
+    public void takeDamage(int damage) {
+        this.health -= damage;
     }
 
     @Override

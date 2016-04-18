@@ -55,13 +55,13 @@ public class Tauren extends Enemy implements EnemyEntity {
 
         }
         walkLeft = new Animation(walkingLeft, 7);
-        col=0;
+        col = 0;
         for (int i = 0; i < attacking.length; i++) {
 
-            row =91;
+            row = 91;
 
             attacking[i] = Assets.tauren.crop(col,row , attackingWidth, attackingHeight);
-            col+=117;
+            col += 117;
        }
         attack = new Animation(attacking, 7);
         animation = walkLeft;
@@ -75,7 +75,10 @@ public class Tauren extends Enemy implements EnemyEntity {
         for (int i = 0; i < buildingEntities.size(); i++) {
             if (Physics.collision(this, buildingEntities.get(i))) {
                 this.isAttacking = true;
-                System.out.println(buildingEntities.get(i));
+                if(attack.getCurrentFrame() == 2){
+                    buildingEntities.get(i).takeDamage(this.damage);
+                }
+
             }
         }
 

@@ -97,5 +97,7 @@ public class Animation {
             }
         }
 
-   // }
+   public int getCurrentFrame(){
+       return currentFrame;
+   }
 }

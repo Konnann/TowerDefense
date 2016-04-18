@@ -41,7 +41,13 @@ public class CastleWall extends PlayerAssets implements BuildingEntity{
 
     @Override
     public Rectangle getBounds() {
+
         return boundingBox;
+    }
+
+    @Override
+    public void takeDamage(int damage) {
+        this.health -= damage;
     }
 
     @Override
@@ -55,9 +61,9 @@ public class CastleWall extends PlayerAssets implements BuildingEntity{
     }
 
     public void increaseHealth(int healthIncrease){
+
         this.health += healthIncrease;
     }
-    public void takeDamage(int damage){this.health -= damage;}
 
 }
 
