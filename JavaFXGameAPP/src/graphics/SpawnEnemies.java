@@ -1,11 +1,14 @@
 package graphics;
 
 
+import entities.BuildingEntity;
+import entities.Physics;
 import gameObjects.Enemy.Enemy;
 import gameObjects.Enemy.Tauren;
 
 import java.awt.*;
 import java.io.*;
+import java.util.LinkedList;
 
 // Reads a text file with the enemy spawn sequence, the rows must always be 5
 //Will fix the crappy animation
@@ -21,12 +24,12 @@ public class SpawnEnemies {
 
     }
 
-    public void tick(){
+    public void tick(LinkedList<BuildingEntity> buildingEntities){
         //Initialize the tick method for all the enemies in the array
         for (int col = 0; col < numberOfColumns ; col++) {
             for (int row = 0; row < 5; row++) {
                 if (enemies[row][col] != null) {
-                    enemies[row][col].tick();
+                    enemies[row][col].tick(buildingEntities);
                 }
             }
 

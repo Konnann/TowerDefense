@@ -1,16 +1,19 @@
 package gameObjects.Enemy;
 
+import entities.BuildingEntity;
 import gameObjects.GameObject;
 import gameObjects.PlayerAssets.CastleWall;
+import sun.awt.image.ImageWatched;
 
 import java.awt.*;
+import java.util.LinkedList;
 
 public abstract class Enemy extends GameObject {
 
     public Rectangle boundingBox;
     public boolean isAttacking;
 
-    public abstract void tick();
+    public abstract void tick(LinkedList<BuildingEntity> buildingEntities);
     public abstract void render(Graphics g);
 
     public int fly(int height, int xPosition){

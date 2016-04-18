@@ -1,4 +1,7 @@
 package gameObjects.Enemy;
+import entities.BuildingEntity;
+import entities.EnemyEntity;
+import entities.Physics;
 import gameObjects.PlayerAssets.PlayerAssets;
 import graphics.Animation;
 import gameObjects.PlayerAssets.CastleWall;
@@ -7,15 +10,16 @@ import graphics.SpriteSheet;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.LinkedList;
 
-public class Tauren extends Enemy {
+public class Tauren extends Enemy implements EnemyEntity {
     private Graphics graphics;
     private int x = 1280;            //position of character on canvas 1280
     private int y;            //..
 
     private int health = 250;
     private int damage = 10;
-    private double velocity = 0.3;        //speed
+    private int velocity = 3;        //speed
     private int goldWorth = 30;      //The reward when you kill the monster
 
     private boolean isDead = false;
@@ -66,38 +70,31 @@ public class Tauren extends Enemy {
 
 
     @Override
-    public void tick(){
+    public void tick(LinkedList<BuildingEntity> buildingEntities){
+        //Check for collision
+        for (int i = 0; i < buildingEntities.size(); i++) {
+            if (Physics.collision(this, buildingEntities.get(i))) {
+                this.isAttacking = true;
+                System.out.println(buildingEntities.get(i));
+            }
+        }
 
         //Update bounding box position
-        if(isAttacking == false) {
+        if(!isAttacking) {
             this.boundingBox.setBounds(this.x, this.y, this.walkingWidth, this.walkingHeight);
         }else{
             this.boundingBox.setBounds(this.x, this.y, this.attackingWidth, this.attackingHeight);
 
         }
-        if(true){
-            animation = attack;
-        }
-        animation.update();
-
-
-//
-
-
-
-
         if(isAttacking){
-            //animation = attack
-
+            animation = attack;
         }else {
             //update enemy position
             x -= this.velocity;
         }
 
-        //enemies stop at end of screen , for testing purposes
-        if (x <= 82) {
-            x = 82;
-        }
+    animation.update();
+
 
     }
     @Override
@@ -105,15 +102,27 @@ public class Tauren extends Enemy {
         this.graphics = g;
             g.drawImage(animation.getSprite(), x, y, null);
 
-
-        if(isAttacking){
-
-        }
+        //System.out.println("Draw" + x + " " + y);
         //Test draw bounding boxes
         g.setColor(Color.red);
         g.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
 
 
+    }
+
+    @Override
+    public Rectangle getBounds() {
+        return boundingBox;
+    }
+
+    @Override
+    public double getX() {
+        return x;
+    }
+
+    @Override
+    public double getY() {
+        return y;
     }
 
 

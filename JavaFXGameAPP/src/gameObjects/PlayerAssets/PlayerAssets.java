@@ -1,5 +1,6 @@
 package gameObjects.PlayerAssets;
 
+import entities.BuildingEntity;
 import graphics.Assets;
 import graphics.SpriteSheet;
 
@@ -7,6 +8,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class PlayerAssets {
+    //implements BuildingEntity
     public Rectangle boundingBox;
 
     //Arrow Initialization
@@ -26,7 +28,7 @@ public class PlayerAssets {
     //Magic Initialization
     private Graphics graphics;
     private int firstMagicX = 70 + 95/2;
-    private int firstMagicY = 715 - 595;
+    private int firstMagicY = 705 - 595;
     private int secondMagicX = 70 + 95/2;
     private int secondMagicY = 690 - 191;
 
@@ -80,4 +82,5 @@ public class PlayerAssets {
         g.drawRect(this.secondMagicBoundingBox.x,this.secondMagicBoundingBox.y,this.secondMagicBoundingBox.width,this.secondMagicBoundingBox.height);
 
     }
+
 }

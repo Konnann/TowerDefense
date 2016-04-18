@@ -11,12 +11,12 @@ public class Crossbow extends PlayerAssets {
 
     private int health = 300;
 
-    private static int crossbowWidth = 193;
-    private static int crossbowHeight = 186;
+    private int crossbowWidth = 193;
+    private int crossbowHeight = 186;
     private BufferedImage crossbowSprite = Assets.crossbow;
 
-    private static int x = - crossbowWidth/2;
-    private static int y = 260;
+    private int x = - crossbowWidth/2;
+    private int y = 260;
 
     public Rectangle boundingBox = new Rectangle(this.crossbowWidth, this.crossbowHeight);
 
@@ -24,11 +24,11 @@ public class Crossbow extends PlayerAssets {
     public Crossbow() {
     }
 
-    public static int getY() {
+    public double getY() {
         return y;
     }
 
-    public static int getX() {
+    public int getX() {
         return x;
     }
     public void tick(){
@@ -46,7 +46,7 @@ public class Crossbow extends PlayerAssets {
         int cy = crossbowSprite.getHeight() / 2;
         AffineTransform oldAT = gr.getTransform();
         g.translate(cx+x, cy+y);
-        gr.rotate(MouseMoving.getImageAngleRad());
+        gr.rotate(MouseMoving.getImageAngleRad(this.x, this.y));
         g.translate(-cx, -cy);
         gr.drawImage(crossbowSprite, 0, 0, null);
         gr.setTransform(oldAT);

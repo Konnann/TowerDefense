@@ -1,9 +1,10 @@
 package gameStates;
 
 import display.Display;
+import entities.BuildingEntity;
 import game.MouseMoving;
 import gameObjects.PlayerAssets.Crossbow;
-import gameObjects.PlayerAssets.Towers;
+import gameObjects.PlayerAssets.Tower;
 import gameObjects.PlayerAssets.PlayerAssets;
 import gameObjects.PlayerAssets.CastleWall;
 import graphics.Assets;
@@ -12,6 +13,7 @@ import graphics.SpawnEnemies;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.util.LinkedList;
 
 public class GameState extends State {
 
@@ -21,14 +23,17 @@ public class GameState extends State {
 
     private State gameState,menuState;
 
-    private PlayerAssets wall = new CastleWall();
-    private Towers tower = new Towers();
+    private CastleWall wall = new CastleWall();
+    private Tower towerOne = new Tower(83,105);
+    private Tower towerTwo = new Tower(83,500);
     private Crossbow crossbow = new Crossbow();
     private SpawnEnemies spawn = new SpawnEnemies();
     private BufferedImage pauseButton,returnInMenuButton,exitButton;
     private PlayerAssets arrow = new PlayerAssets();
     private PlayerAssets firstMagic = new PlayerAssets();
     private PlayerAssets secondMagic = new PlayerAssets();
+
+    public LinkedList<BuildingEntity> buildingEntities = new LinkedList<>();
 
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
@@ -43,21 +48,28 @@ public class GameState extends State {
 
     private void initialize(){
         display.getCanvas().addMouseMotionListener(new MouseMoving());
-        pauseButton=Assets.smallerButtons.crop(15,340,49,48);
+        pauseButton = Assets.smallerButtons.crop(15,340,49,48);
         returnInMenuButton = Assets.smallerButtons.crop(151, 338, 50, 52);
         exitButton = Assets.smallerButtons.crop(435,231,49,49);
+        buildingEntities.add(wall);
+        buildingEntities.add(towerOne);
+        buildingEntities.add(towerTwo);
+        spawn.addEnemies();
+
 
     }
 
     @Override
     public void tick() {
-        this.wall.tick();
-        this.spawn.tick();
-        this.tower.tick();
-        this.crossbow.tick();
-        this.arrow.tick();
+
+        this.spawn.tick(buildingEntities);
         this.firstMagic.tick();
         this.secondMagic.tick();
+        for (int i = 0; i < buildingEntities.size() ; i++) {
+            buildingEntities.get(i).tick();
+        }
+        this.crossbow.tick();
+        this.arrow.tick();
 
     }
 
@@ -79,13 +91,14 @@ public class GameState extends State {
         this.graphics.drawImage(returnInMenuButton, 1160,7, null);
         this.graphics.drawImage(exitButton,1220,10,null);
 
-        this.wall.render(this.graphics);
         this.spawn.render(this.graphics);
-        this.tower.render(this.graphics);
-        this.crossbow.render(this.graphics);
-        this.arrow.render(this.graphics);
         this.firstMagic.render(this.graphics);
         this.secondMagic.render(this.graphics);
+        for (int i = 0; i < buildingEntities.size() ; i++) {
+            buildingEntities.get(i).render(this.graphics);
+        }
+        this.crossbow.render(this.graphics);
+        this.arrow.render(this.graphics);
 
         //End drawing
 
@@ -93,5 +106,8 @@ public class GameState extends State {
         this.bufferStrategy.show();
     }
 
+    public LinkedList<BuildingEntity> getBuildingEntities() {
+        return buildingEntities;
+    }
 
 }
