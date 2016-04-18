@@ -11,18 +11,6 @@ public class PlayerAssets {
     //implements BuildingEntity
     public Rectangle boundingBox;
 
-    //Arrow Initialization
-    private int arrowX = 0;
-    private int arrowY = 250 + 186/2;
-    private BufferedImage arrowSprite = Assets.Arrow;
-
-    private int arrowWidht = 193 / 2 + 20;
-    private int arrowHeight = 20;
-
-    private int arrowVelocity;
-
-    public Rectangle arrowBoundingBox = new Rectangle(this.arrowWidht, this.arrowHeight);
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Magic Initialization
@@ -54,9 +42,6 @@ public class PlayerAssets {
 
     public void tick() {
 
-        //Setting arrow's bounding box's bounds
-        this.arrowBoundingBox.setBounds(arrowX,arrowY,arrowWidht,arrowHeight);
-
         //Setting magic's bounding box's bounds
         this.firstMagicBoundingBox.setBounds(firstMagicX,firstMagicY,magicWidth,magicHeight);
         this.secondMagicBoundingBox.setBounds(secondMagicX,secondMagicY,magicWidth,magicHeight);
@@ -66,12 +51,6 @@ public class PlayerAssets {
     }
 
     public void render(Graphics g) {
-
-        //Drawing arrow and arrow's bounding box
-        g.drawImage(arrowSprite,this.arrowX,this.arrowY,this.arrowWidht,this.arrowHeight,null);
-        g.setColor(Color.BLUE);
-        g.drawRect(this.arrowBoundingBox.x, this.arrowBoundingBox.y, this.arrowBoundingBox.width, this.arrowBoundingBox.height);
-
         //Drawing magic projectile and its surrounding bounding box
         this.graphics = g;
         currentSprite = Assets.Magic.crop(this.col * magicWidth, 0, magicWidth, magicHeight);

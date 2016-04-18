@@ -3,10 +3,7 @@ package gameStates;
 import display.Display;
 import entities.BuildingEntity;
 import game.MouseMoving;
-import gameObjects.PlayerAssets.Crossbow;
-import gameObjects.PlayerAssets.Tower;
-import gameObjects.PlayerAssets.PlayerAssets;
-import gameObjects.PlayerAssets.CastleWall;
+import gameObjects.PlayerAssets.*;
 import graphics.Assets;
 import graphics.SpawnEnemies;
 
@@ -27,9 +24,9 @@ public class GameState extends State {
     private Tower towerOne = new Tower(83,105);
     private Tower towerTwo = new Tower(83,500);
     private Crossbow crossbow = new Crossbow();
+    private Arrow arrow = new Arrow();
     private SpawnEnemies spawn = new SpawnEnemies();
     private BufferedImage pauseButton,returnInMenuButton,exitButton;
-    private PlayerAssets arrow = new PlayerAssets();
     private PlayerAssets firstMagic = new PlayerAssets();
     private PlayerAssets secondMagic = new PlayerAssets();
 
