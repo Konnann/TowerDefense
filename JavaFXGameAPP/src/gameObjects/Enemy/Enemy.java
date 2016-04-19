@@ -8,27 +8,20 @@ import sun.awt.image.ImageWatched;
 import java.awt.*;
 import java.util.LinkedList;
 
-public abstract class Enemy extends GameObject {
-
-    public Rectangle boundingBox;
-    public boolean isAttacking;
+public interface Enemy {
 
     public abstract void tick(LinkedList<BuildingEntity> buildingEntities);
     public abstract void render(Graphics g);
 
-    public int fly(int height, int xPosition){
-        return xPosition += height;
-    }
 
-    public int takeDamage(int damage, int healthPoints) {
+    public void takeDamage(int damage);
+    public void intersect(Enemy enemy, CastleWall wall);
+    public void isAttacking(boolean isAttacking);
 
-        healthPoints = healthPoints - damage;
-        return healthPoints;
-    }
-    public static void intersect(Enemy enemy, CastleWall wall){
-        if(enemy.boundingBox.intersects(wall.boundingBox)){
-            enemy.isAttacking = true;
-        }
-    }
+    public int getX();
+    public int getY();
+    public Rectangle getBoundingBox();
+
+
 
 }

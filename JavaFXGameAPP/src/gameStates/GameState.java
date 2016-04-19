@@ -3,6 +3,7 @@ package gameStates;
 import display.Display;
 import entities.BuildingEntity;
 import game.MouseMoving;
+import gameObjects.Enemy.Enemy;
 import gameObjects.Enemy.Tauren;
 import gameObjects.PlayerAssets.*;
 import gameObjects.Projectile.Arrow;
@@ -22,25 +23,24 @@ public class GameState extends State {
 
     private State gameState,menuState;
 
+    private SpawnEnemies spawn = new SpawnEnemies();
     private CastleWall wall = new CastleWall();
-    private Tower towerOne = new Tower(83,105);
-    private Tower towerTwo = new Tower(83,500);
+    private Tower towerOne;
+    private Tower towerTwo;
     private Crossbow crossbow = new Crossbow();
     private Arrow arrow = new Arrow();
-    private SpawnEnemies spawn = new SpawnEnemies();
     private BufferedImage pauseButton,returnInMenuButton,exitButton;
     private PlayerAssets firstMagic = new PlayerAssets();
     private PlayerAssets secondMagic = new PlayerAssets();
 
     public LinkedList<BuildingEntity> buildingEntities = new LinkedList<>();
 
-    private Tauren tauren = new Tauren(1280, 200); //DEBUG
+    private Enemy[][] tauren = new Enemy[1][1];//DEBUG
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
         this.display = display;
         this.bufferStrategy = bufferStrategy;
         this.graphics = graphics;
-       // this.spawn.addEnemies();
 
         initialize();
 
@@ -51,10 +51,16 @@ public class GameState extends State {
         pauseButton = Assets.smallerButtons.crop(15,340,49,48);
         returnInMenuButton = Assets.smallerButtons.crop(151, 338, 50, 52);
         exitButton = Assets.smallerButtons.crop(435,231,49,49);
+        tauren[0][0] = new Tauren(1280, 200);
+      // spawn.addEnemies();
+     // towerOne = new Tower(83, 105, spawn.getEnemies());
+     // towerTwo = new Tower(83, 500, spawn.getEnemies());
+        towerOne = new Tower(83, 105, tauren);
+        towerTwo = new Tower(83, 500, tauren);
         buildingEntities.add(wall);
         buildingEntities.add(towerOne);
         buildingEntities.add(towerTwo);
-        spawn.addEnemies();
+
 
 
     }
@@ -62,7 +68,7 @@ public class GameState extends State {
     @Override
     public void tick() {
 
-        this.spawn.tick(buildingEntities);
+      //  this.spawn.tick(buildingEntities);
 
         for (int i = 0; i < buildingEntities.size() ; i++) {
             buildingEntities.get(i).tick();
@@ -75,8 +81,7 @@ public class GameState extends State {
                 buildingEntities.remove(i);
             }
         }
-
-
+        tauren[0][0].tick(buildingEntities); //DEBUG
     }
 
     @Override
@@ -97,13 +102,15 @@ public class GameState extends State {
         this.graphics.drawImage(returnInMenuButton, 1160, 9, null);
         this.graphics.drawImage(exitButton, 1220, 12, null);
 
-        this.spawn.render(this.graphics);
+       // this.spawn.render(this.graphics);
 
         for (int i = 0; i < buildingEntities.size() ; i++) {
             buildingEntities.get(i).render(this.graphics);
         }
         this.crossbow.render(this.graphics);
         this.arrow.render(this.graphics);
+
+        tauren[0][0].render(graphics); //DEBUG
 
         //End drawing
 

@@ -8,7 +8,7 @@ public interface EnemyEntity {
     public void render(Graphics g);
     public Rectangle getBounds();
 
-    public double getX();
-    public double getY();
+    public int getX();
+    public int getY();
 
 }

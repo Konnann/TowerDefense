@@ -90,5 +90,9 @@ public class SpawnEnemies {
             e.printStackTrace();
         }
     }
+
+    public Enemy[][] getEnemies(){
+        return enemies;
+    }
 }
 

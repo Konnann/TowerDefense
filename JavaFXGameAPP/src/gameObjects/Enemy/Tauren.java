@@ -13,7 +13,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
-public class Tauren extends Enemy implements EnemyEntity {
+public class Tauren implements Enemy, EnemyEntity {
+
     private Graphics graphics;
     private int x = 1280;            //position of character on canvas 1280
     private int y;            //..
@@ -82,7 +83,6 @@ public class Tauren extends Enemy implements EnemyEntity {
         //Check for collision and attack if true
         for (int i = 0; i < buildingEntities.size(); i++) {
             if (Physics.collision(this, buildingEntities.get(i))) {
-                System.out.println("  " + Physics.collision(this, buildingEntities.get(i))); // DEBUG
                 this.isAttacking = true;
                 if (attack.getCurrentFrame() == 2) {
                     buildingEntities.get(i).takeDamage(this.damage);
@@ -132,18 +132,39 @@ public class Tauren extends Enemy implements EnemyEntity {
     }
 
     @Override
+    public void takeDamage(int damage) {
+        this.health -= damage;
+    }
+
+    @Override
+    public void intersect(Enemy enemy, CastleWall wall) {
+
+    }
+
+    @Override
     public Rectangle getBounds() {
         return boundingBox;
     }
 
+
     @Override
-    public double getX() {
+    public void isAttacking(boolean isAttacking) {
+       this.isAttacking = isAttacking;
+    }
+
+    @Override
+    public int getX() {
         return x;
     }
 
     @Override
-    public double getY() {
+    public int getY() {
         return y;
+    }
+
+    @Override
+    public Rectangle getBoundingBox() {
+        return this.boundingBox;
     }
 
 
