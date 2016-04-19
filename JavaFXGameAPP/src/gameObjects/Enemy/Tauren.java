@@ -6,6 +6,7 @@ import gameObjects.PlayerAssets.PlayerAssets;
 import graphics.Animation;
 import gameObjects.PlayerAssets.CastleWall;
 import graphics.Assets;
+import graphics.HealthBar;
 import graphics.SpriteSheet;
 
 import java.awt.*;
@@ -18,7 +19,7 @@ public class Tauren extends Enemy implements EnemyEntity {
     private int y;            //..
 
     private int health = 250;
-    private int damage = 10;
+    private int damage = 2;
     private int velocity = 3;        //speed
     private int goldWorth = 30;      //The reward when you kill the monster
 
@@ -39,6 +40,12 @@ public class Tauren extends Enemy implements EnemyEntity {
     private BufferedImage[] walkingLeft = new BufferedImage[walkFrames];
     private BufferedImage[] attacking = new BufferedImage[attackFrames];
     private Animation attack,walkLeft;
+
+    private int barX = this.x + 8;
+    private int barY = this.y - 5;
+    private int barWidth = this.walkingWidth - 16;
+    private int barHeight = 7;
+    private HealthBar healthBar = new HealthBar(this.barX, this.barY, this.barWidth, this.barHeight, this.health);
 
 
     public Tauren(int x, int y){
@@ -71,14 +78,15 @@ public class Tauren extends Enemy implements EnemyEntity {
 
     @Override
     public void tick(LinkedList<BuildingEntity> buildingEntities){
-        //Check for collision
+
+        //Check for collision and attack if true
         for (int i = 0; i < buildingEntities.size(); i++) {
             if (Physics.collision(this, buildingEntities.get(i))) {
+                System.out.println("  " + Physics.collision(this, buildingEntities.get(i))); // DEBUG
                 this.isAttacking = true;
-                if(attack.getCurrentFrame() == 2){
+                if (attack.getCurrentFrame() == 2) {
                     buildingEntities.get(i).takeDamage(this.damage);
                 }
-
             }
         }
 
@@ -89,10 +97,16 @@ public class Tauren extends Enemy implements EnemyEntity {
             this.boundingBox.setBounds(this.x, this.y, this.attackingWidth, this.attackingHeight);
 
         }
+
+        //Update healthbar
+        this.healthBar.tick(this.x + 8, this.y - 5, this.health);
+
+        //change animation if attacking
         if(isAttacking){
             animation = attack;
         }else {
             //update enemy position
+            animation = walkLeft;
             x -= this.velocity;
         }
 
@@ -100,16 +114,20 @@ public class Tauren extends Enemy implements EnemyEntity {
 
 
     }
+
     @Override
-    public void render(Graphics g)  {
-        this.graphics = g;
-            g.drawImage(animation.getSprite(), x, y, null);
+    public void render(Graphics graphics)  {
+        this.graphics = graphics;
+            graphics.drawImage(animation.getSprite(), x, y, null);
 
-        //System.out.println("Draw" + x + " " + y);
         //Test draw bounding boxes
-        g.setColor(Color.red);
-        g.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
+        graphics.setColor(Color.red);
+        graphics.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
 
+        //draw healthbar
+        this.healthBar.render(this.graphics);
+
+        this.isAttacking = false;
 
     }
 

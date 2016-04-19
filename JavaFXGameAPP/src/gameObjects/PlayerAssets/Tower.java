@@ -2,6 +2,7 @@ package gameObjects.PlayerAssets;
 
 import entities.BuildingEntity;
 import graphics.Assets;
+import graphics.HealthBar;
 
 import javax.swing.text.StyledEditorKit;
 import java.awt.*;
@@ -11,12 +12,12 @@ import java.util.Set;
 import static javax.swing.text.StyledEditorKit.*;
 
 public class Tower extends PlayerAssets implements BuildingEntity{
-    private int health = 250;
+    private int health = 1500;
 
     private int towerWidth = 95;
     private int towerHeight = 191;
     private int towerRange = 600;
-    private int healthBar = towerWidth;
+    private int healthWidth = towerWidth;
     private BufferedImage towerSprite = Assets.tower;
 
     private int x = 83;
@@ -24,7 +25,9 @@ public class Tower extends PlayerAssets implements BuildingEntity{
 
     public Rectangle boundingBox;
     public Rectangle TowerRange = new Rectangle(this.towerRange,this.towerHeight + towerHeight/2);
-    public Rectangle TowerHealthBar = new Rectangle(this.healthBar,7);
+    public Rectangle TowerHealthBar = new Rectangle(this.healthWidth,7);
+
+    private HealthBar healthBar;
 
 
     //Create a tower
@@ -32,14 +35,12 @@ public class Tower extends PlayerAssets implements BuildingEntity{
         this.x = x;
         this.y = y;
         boundingBox = new Rectangle(this.x, this.y, this.towerWidth, this.towerHeight);
-
+        healthBar = new HealthBar(this.x, this.y - 20, this.TowerHealthBar.width, this.TowerHealthBar.height, this.health);
     }
 
     public void tick() {
-        System.out.println(" tower health" + " " + health);
-        if (health <= 0){
-            System.out.println("tower destroyed");
-        }
+
+        healthBar.tick(this.x, this.y - 10, this.health);
 
     }
 
@@ -59,17 +60,7 @@ public class Tower extends PlayerAssets implements BuildingEntity{
         g.setColor(Color.yellow);
         g.drawRect(this.TowerRange.x,this.TowerRange.y,this.TowerRange.width,this.TowerRange.height);
 
-
-        this.TowerHealthBar.setBounds(this.x,this.y-10,this.TowerHealthBar.width,this.TowerHealthBar.height);
-        g.setColor(new Color(190,50,50));
-        g.fillRect(this.TowerHealthBar.x,this.TowerHealthBar.y-5,this.towerWidth,this.TowerHealthBar.height);
-
-        g.setColor(new Color(50,180,50));
-        g.fillRect(this.TowerHealthBar.x,this.TowerHealthBar.y-5,this.TowerHealthBar.width,this.TowerHealthBar.height);
-
-        g.setColor(new Color(0,0,0));
-        g.drawRect(this.TowerHealthBar.x,this.TowerHealthBar.y-5,this.TowerHealthBar.width,this.TowerHealthBar.height);
-
+        healthBar.render(g);
     }
 
     @Override
@@ -90,6 +81,11 @@ public class Tower extends PlayerAssets implements BuildingEntity{
     @Override
     public double getY() {
         return y;
+    }
+
+    @Override
+    public int getHealth() {
+        return health;
     }
 
     public int looseHealth() {

@@ -10,5 +10,5 @@ public interface BuildingEntity {
 
     public double getX();
     public double getY();
-
+    public int getHealth();
 }

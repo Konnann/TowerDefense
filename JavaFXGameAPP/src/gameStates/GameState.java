@@ -3,7 +3,9 @@ package gameStates;
 import display.Display;
 import entities.BuildingEntity;
 import game.MouseMoving;
+import gameObjects.Enemy.Tauren;
 import gameObjects.PlayerAssets.*;
+import gameObjects.Projectile.Arrow;
 import graphics.Assets;
 import graphics.SpawnEnemies;
 
@@ -32,12 +34,13 @@ public class GameState extends State {
 
     public LinkedList<BuildingEntity> buildingEntities = new LinkedList<>();
 
+    private Tauren tauren = new Tauren(1280, 200); //DEBUG
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
         this.display = display;
         this.bufferStrategy = bufferStrategy;
         this.graphics = graphics;
-        this.spawn.addEnemies();
+       // this.spawn.addEnemies();
 
         initialize();
 
@@ -60,13 +63,19 @@ public class GameState extends State {
     public void tick() {
 
         this.spawn.tick(buildingEntities);
-        this.firstMagic.tick();
-        this.secondMagic.tick();
+
         for (int i = 0; i < buildingEntities.size() ; i++) {
             buildingEntities.get(i).tick();
         }
         this.crossbow.tick();
         this.arrow.tick();
+
+        for (int i = 0; i < buildingEntities.size(); i++) {
+            if(buildingEntities.get(i).getHealth() <= 0){
+                buildingEntities.remove(i);
+            }
+        }
+
 
     }
 
@@ -84,13 +93,12 @@ public class GameState extends State {
         //Start drawing
         graphics.clearRect(0, 0, 1280, 720);
         graphics.drawImage(Assets.gameBackground, 0, 0, 1280, 720, null);
-        this.graphics.drawImage(pauseButton, 1100,9, null);
-        this.graphics.drawImage(returnInMenuButton, 1160,7, null);
-        this.graphics.drawImage(exitButton,1220,10,null);
+        this.graphics.drawImage(pauseButton, 1100, 11, null);
+        this.graphics.drawImage(returnInMenuButton, 1160, 9, null);
+        this.graphics.drawImage(exitButton, 1220, 12, null);
 
         this.spawn.render(this.graphics);
-        this.firstMagic.render(this.graphics);
-        this.secondMagic.render(this.graphics);
+
         for (int i = 0; i < buildingEntities.size() ; i++) {
             buildingEntities.get(i).render(this.graphics);
         }

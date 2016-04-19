@@ -1,6 +1,7 @@
-package gameObjects.PlayerAssets;
+package gameObjects.Projectile;
 
 import game.MouseMoving;
+import gameObjects.PlayerAssets.PlayerAssets;
 import graphics.Assets;
 
 import java.awt.*;
@@ -9,7 +10,7 @@ import java.awt.image.BufferedImage;
 
 public class Arrow extends PlayerAssets {
 
-    private int arrowWidht = 200 / 2;
+    private int arrowWidth = 200 / 2;
     private int arrowHeight = 20;
 
     private int arrowX = -10;
@@ -17,11 +18,11 @@ public class Arrow extends PlayerAssets {
     private BufferedImage arrowSprite = Assets.Arrow;
     private int arrowVelocity;
 
-    public Rectangle arrowBoundingBox = new Rectangle(this.arrowWidht, this.arrowHeight);
+    public Rectangle arrowBoundingBox = new Rectangle(this.arrowWidth, this.arrowHeight);
 
     public void tick() {
         //Setting arrow's bounding box's bounds
-        this.arrowBoundingBox.setBounds(arrowX, arrowY, arrowWidht, arrowHeight);
+        this.arrowBoundingBox.setBounds(arrowX, arrowY, arrowWidth, arrowHeight);
     }
 
     public void render(Graphics g) {

@@ -9,8 +9,6 @@ import java.awt.image.BufferedImage;
 
 public class Crossbow extends PlayerAssets {
 
-    private int health = 300;
-
     private BufferedImage crossbowSprite = Assets.crossbow;
     private int crossbowWidth = crossbowSprite.getWidth();
     private int crossbowHeight = crossbowSprite.getWidth();

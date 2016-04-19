@@ -3,13 +3,14 @@ package gameObjects.PlayerAssets;
 import entities.BuildingEntity;
 import game.Game;
 import graphics.Assets;
+import graphics.HealthBar;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class CastleWall extends PlayerAssets implements BuildingEntity{
 
-    private int health = 500;
+    private int health = 5000;
 
     private int spriteWidth = 82;
     private int spriteHeight = 575;
@@ -20,20 +21,24 @@ public class CastleWall extends PlayerAssets implements BuildingEntity{
 
     public Rectangle boundingBox = new Rectangle(this.x, this.y, this.spriteWidth, this.spriteHeight);
 
+    private int barWidth = 1280;
+    private int barHeight = 10;
+    private HealthBar healthBar;
 
 
     //Create a wall
     public CastleWall() {
+        this.healthBar = new HealthBar(0, 0, barWidth, barHeight, health);
     }
 
     public void tick(){
         this.boundingBox.setBounds(this.x, this.y, this.spriteWidth, this.spriteHeight);
-
+        this.healthBar.tick(0, 0, health);
     }
 
     public void render(Graphics g){
         g.drawImage(wallSprite, this.x, this.y, this.spriteWidth, this.spriteHeight, null );
-
+        this.healthBar.render(g);
         //drawing bounding boxes for test
         g.setColor(Color.red);
         g.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
@@ -58,6 +63,11 @@ public class CastleWall extends PlayerAssets implements BuildingEntity{
     @Override
     public double getY() {
         return y;
+    }
+
+    @Override
+    public int getHealth() {
+        return health;
     }
 
     public void increaseHealth(int healthIncrease){
