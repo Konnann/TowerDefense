@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b7228f2-2141-4524-84e9-2b554961f300" name="Default" comment="Towers target enemies and shoot projectiles at them, enemies take damage, and die, added ProjectileEntity interface">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/you_win_650x154.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graphics/Assets.java" afterPath="$PROJECT_DIR$/src/graphics/Assets.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameObjects/PlayerAssets/CastleWall.java" afterPath="$PROJECT_DIR$/src/gameObjects/PlayerAssets/CastleWall.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameStates/GameState.java" afterPath="$PROJECT_DIR$/src/gameStates/GameState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameObjects/Projectile/MagicAttack.java" afterPath="$PROJECT_DIR$/src/gameObjects/Projectile/MagicAttack.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graphics/SpawnEnemies.java" afterPath="$PROJECT_DIR$/src/graphics/SpawnEnemies.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/SpawnEnemies.txt" afterPath="$PROJECT_DIR$/resources/SpawnEnemies.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameObjects/Enemy/Tauren.java" afterPath="$PROJECT_DIR$/src/gameObjects/Enemy/Tauren.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameObjects/PlayerAssets/Tower.java" afterPath="$PROJECT_DIR$/src/gameObjects/PlayerAssets/Tower.java" />
+    <list default="true" id="8b7228f2-2141-4524-84e9-2b554961f300" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFXGameAPP.iws" />
@@ -39,16 +30,9 @@
       <file leaf-file-name="Tauren.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameObjects/Enemy/Tauren.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3874" max-vertical-offset="4968">
-              <caret line="131" column="33" selection-start-line="131" selection-start-column="33" selection-end-line="131" selection-end-column="33" />
-              <folding>
-                <element signature="e#4654#4655#0" expanded="true" />
-                <element signature="e#4688#4689#0" expanded="true" />
-                <element signature="e#5066#5067#0" expanded="true" />
-                <element signature="e#5096#5097#0" expanded="true" />
-                <element signature="e#5128#5129#0" expanded="true" />
-                <element signature="e#5160#5161#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="3712" max-vertical-offset="5157">
+              <caret line="125" column="33" selection-start-line="125" selection-start-column="33" selection-end-line="125" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,25 +74,25 @@
       <file leaf-file-name="Tower.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameObjects/PlayerAssets/Tower.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1422" max-vertical-offset="5346">
-              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1341" max-vertical-offset="5238">
+              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
               <folding>
                 <element signature="e#1126#1144#0" expanded="true" />
-                <element signature="e#5569#5570#0" expanded="true" />
-                <element signature="e#5603#5604#0" expanded="true" />
+                <element signature="e#5393#5394#0" expanded="true" />
+                <element signature="e#5427#5428#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameState.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameStates/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.77796054" vertical-offset="2497" max-vertical-offset="3429">
-              <caret line="123" column="21" selection-start-line="123" selection-start-column="21" selection-end-line="123" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2254" max-vertical-offset="3186">
+              <caret line="114" column="21" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
               <folding>
-                <element signature="e#4191#4192#0" expanded="true" />
-                <element signature="e#4230#4231#0" expanded="true" />
+                <element signature="e#3859#3860#0" expanded="true" />
+                <element signature="e#3898#3899#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,25 +101,25 @@
       <file leaf-file-name="CastleWall.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameObjects/PlayerAssets/CastleWall.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="980" max-vertical-offset="1944">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="926" max-vertical-offset="2106">
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpawnEnemies.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SpawnEnemies.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphics/SpawnEnemies.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1655" max-vertical-offset="3672">
-              <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7319079" vertical-offset="1607" max-vertical-offset="3051">
+              <caret line="83" column="44" selection-start-line="83" selection-start-column="44" selection-end-line="83" selection-end-column="44" />
               <folding>
-                <element signature="e#3615#3616#0" expanded="true" />
-                <element signature="e#3645#3646#0" expanded="true" />
-                <element signature="e#3683#3684#0" expanded="true" />
-                <element signature="e#3721#3722#0" expanded="true" />
-                <element signature="e#3757#3758#0" expanded="true" />
-                <element signature="e#3792#3793#0" expanded="true" />
+                <element signature="e#3037#3038#0" expanded="true" />
+                <element signature="e#3067#3068#0" expanded="true" />
+                <element signature="e#3105#3106#0" expanded="true" />
+                <element signature="e#3143#3144#0" expanded="true" />
+                <element signature="e#3179#3180#0" expanded="true" />
+                <element signature="e#3214#3215#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,8 +138,8 @@
       <file leaf-file-name="Assets.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphics/Assets.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1215">
-              <caret line="35" column="93" selection-start-line="35" selection-start-column="93" selection-end-line="35" selection-end-column="93" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1161">
+              <caret line="33" column="93" selection-start-line="33" selection-start-column="93" selection-end-line="33" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -707,7 +691,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461182980548</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Spawns next wave after you defeat all enemies from the current one, when you defeat all waves it draws &quot;You win&quot; on the screen.">
+      <created>1461192558995</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1461192558995</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -788,7 +778,8 @@
     <MESSAGE value="Added HealthBar class, Upgraded collision, Buildings are removed when they get to 0 hp, Taurens do damage when they attack, Added Moved floating magic orbs to their own class - MagicAttack," />
     <MESSAGE value="Added projectile class, Progress on towers shooting projectiles" />
     <MESSAGE value="Towers target enemies and shoot projectiles at them, enemies take damage, and die, added ProjectileEntity interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="Towers target enemies and shoot projectiles at them, enemies take damage, and die, added ProjectileEntity interface" />
+    <MESSAGE value="Spawns next wave after you defeat all enemies from the current one, when you defeat all waves it draws &quot;You win&quot; on the screen." />
+    <option name="LAST_COMMIT_MESSAGE" value="Spawns next wave after you defeat all enemies from the current one, when you defeat all waves it draws &quot;You win&quot; on the screen." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -796,7 +787,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="waveIndex == 3" language="JAVA" custom="" />
           <url>file://$PROJECT_DIR$/src/graphics/SpawnEnemies.java</url>
-          <line>56</line>
+          <line>53</line>
           <properties />
           <option name="timeStamp" value="71" />
         </line-breakpoint>
@@ -823,8 +814,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3159">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="e#4230#4231#0" expanded="true" />
+            <element signature="e#3859#3860#0" expanded="true" />
+            <element signature="e#3898#3899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -835,8 +826,8 @@
           <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
             <element signature="e#1126#1144#0" expanded="true" />
-            <element signature="e#5569#5570#0" expanded="true" />
-            <element signature="e#5603#5604#0" expanded="true" />
+            <element signature="e#5393#5394#0" expanded="true" />
+            <element signature="e#5427#5428#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -847,10 +838,10 @@
           <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#3044#3045#0" expanded="false" />
-            <element signature="e#3071#3072#0" expanded="false" />
-            <element signature="e#3106#3107#0" expanded="false" />
-            <element signature="e#3140#3141#0" expanded="false" />
+            <element signature="e#3043#3044#0" expanded="false" />
+            <element signature="e#3070#3071#0" expanded="false" />
+            <element signature="e#3105#3106#0" expanded="false" />
+            <element signature="e#3139#3140#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -859,14 +850,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="4212">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#4654#4655#0" expanded="true" />
-            <element signature="e#4688#4689#0" expanded="true" />
-            <element signature="e#5066#5067#0" expanded="true" />
-            <element signature="e#5096#5097#0" expanded="true" />
-            <element signature="e#5128#5129#0" expanded="true" />
-            <element signature="e#5160#5161#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -883,8 +867,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1989" max-vertical-offset="2970">
           <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding>
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="e#4230#4231#0" expanded="true" />
+            <element signature="e#3859#3860#0" expanded="true" />
+            <element signature="e#3898#3899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -903,8 +887,8 @@
           <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
             <element signature="e#1126#1144#0" expanded="true" />
-            <element signature="e#5569#5570#0" expanded="true" />
-            <element signature="e#5603#5604#0" expanded="true" />
+            <element signature="e#5393#5394#0" expanded="true" />
+            <element signature="e#5427#5428#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -929,10 +913,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#3044#3045#0" expanded="false" />
-            <element signature="e#3071#3072#0" expanded="false" />
-            <element signature="e#3106#3107#0" expanded="false" />
-            <element signature="e#3140#3141#0" expanded="false" />
+            <element signature="e#3043#3044#0" expanded="false" />
+            <element signature="e#3070#3071#0" expanded="false" />
+            <element signature="e#3105#3106#0" expanded="false" />
+            <element signature="e#3139#3140#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -950,14 +934,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1863">
           <caret line="10" column="71" selection-start-line="10" selection-start-column="71" selection-end-line="12" selection-end-column="29" />
           <folding>
-            <element signature="e#1574#1575#0" expanded="false" />
-            <element signature="e#1611#1612#0" expanded="false" />
-            <element signature="e#1653#1654#0" expanded="false" />
-            <element signature="e#1677#1678#0" expanded="false" />
-            <element signature="e#1719#1720#0" expanded="false" />
-            <element signature="e#1743#1744#0" expanded="false" />
-            <element signature="e#1787#1788#0" expanded="false" />
-            <element signature="e#1816#1817#0" expanded="false" />
+            <element signature="e#1620#1621#0" expanded="false" />
+            <element signature="e#1644#1645#0" expanded="false" />
+            <element signature="e#1686#1687#0" expanded="false" />
+            <element signature="e#1710#1711#0" expanded="false" />
+            <element signature="e#1754#1755#0" expanded="false" />
+            <element signature="e#1783#1784#0" expanded="false" />
+            <element signature="e#1717#1718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -966,14 +949,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4374">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#4654#4655#0" expanded="true" />
-            <element signature="e#4688#4689#0" expanded="true" />
-            <element signature="e#5066#5067#0" expanded="true" />
-            <element signature="e#5096#5097#0" expanded="true" />
-            <element signature="e#5128#5129#0" expanded="true" />
-            <element signature="e#5160#5161#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -982,8 +958,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2286" max-vertical-offset="3024">
           <caret line="99" column="2" selection-start-line="99" selection-start-column="2" selection-end-line="99" selection-end-column="2" />
           <folding>
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="e#4230#4231#0" expanded="true" />
+            <element signature="e#3859#3860#0" expanded="true" />
+            <element signature="e#3898#3899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1010,8 +986,8 @@
           <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
             <element signature="e#1126#1144#0" expanded="true" />
-            <element signature="e#5569#5570#0" expanded="true" />
-            <element signature="e#5603#5604#0" expanded="true" />
+            <element signature="e#5393#5394#0" expanded="true" />
+            <element signature="e#5427#5428#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1046,14 +1022,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1971">
           <caret line="10" column="71" selection-start-line="10" selection-start-column="71" selection-end-line="12" selection-end-column="29" />
           <folding>
-            <element signature="e#1574#1575#0" expanded="false" />
-            <element signature="e#1611#1612#0" expanded="false" />
-            <element signature="e#1653#1654#0" expanded="false" />
-            <element signature="e#1677#1678#0" expanded="false" />
-            <element signature="e#1719#1720#0" expanded="false" />
-            <element signature="e#1743#1744#0" expanded="false" />
-            <element signature="e#1787#1788#0" expanded="false" />
-            <element signature="e#1816#1817#0" expanded="false" />
+            <element signature="e#1620#1621#0" expanded="false" />
+            <element signature="e#1644#1645#0" expanded="false" />
+            <element signature="e#1686#1687#0" expanded="false" />
+            <element signature="e#1710#1711#0" expanded="false" />
+            <element signature="e#1754#1755#0" expanded="false" />
+            <element signature="e#1783#1784#0" expanded="false" />
+            <element signature="e#1717#1718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1221,8 +1196,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameObjects/PlayerAssets/CastleWall.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1034" max-vertical-offset="2052">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="926" max-vertical-offset="2106">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1237,42 +1212,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameObjects/Enemy/Tauren.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3874" max-vertical-offset="4968">
-          <caret line="131" column="33" selection-start-line="131" selection-start-column="33" selection-end-line="131" selection-end-column="33" />
-          <folding>
-            <element signature="e#4654#4655#0" expanded="true" />
-            <element signature="e#4688#4689#0" expanded="true" />
-            <element signature="e#5066#5067#0" expanded="true" />
-            <element signature="e#5096#5097#0" expanded="true" />
-            <element signature="e#5128#5129#0" expanded="true" />
-            <element signature="e#5160#5161#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="3712" max-vertical-offset="5157">
+          <caret line="125" column="33" selection-start-line="125" selection-start-column="33" selection-end-line="125" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameObjects/PlayerAssets/Tower.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1422" max-vertical-offset="5346">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1341" max-vertical-offset="5238">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
             <element signature="e#1126#1144#0" expanded="true" />
-            <element signature="e#5569#5570#0" expanded="true" />
-            <element signature="e#5603#5604#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphics/SpawnEnemies.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1655" max-vertical-offset="3672">
-          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <element signature="e#3615#3616#0" expanded="true" />
-            <element signature="e#3645#3646#0" expanded="true" />
-            <element signature="e#3683#3684#0" expanded="true" />
-            <element signature="e#3721#3722#0" expanded="true" />
-            <element signature="e#3757#3758#0" expanded="true" />
-            <element signature="e#3792#3793#0" expanded="true" />
+            <element signature="e#5393#5394#0" expanded="true" />
+            <element signature="e#5427#5428#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1287,19 +1240,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graphics/Assets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1215">
-          <caret line="35" column="93" selection-start-line="35" selection-start-column="93" selection-end-line="35" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1161">
+          <caret line="33" column="93" selection-start-line="33" selection-start-column="93" selection-end-line="33" selection-end-column="93" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameStates/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77796054" vertical-offset="2497" max-vertical-offset="3429">
-          <caret line="123" column="21" selection-start-line="123" selection-start-column="21" selection-end-line="123" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2254" max-vertical-offset="3186">
+          <caret line="114" column="21" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
           <folding>
-            <element signature="e#4191#4192#0" expanded="true" />
-            <element signature="e#4230#4231#0" expanded="true" />
+            <element signature="e#3859#3860#0" expanded="true" />
+            <element signature="e#3898#3899#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphics/SpawnEnemies.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7319079" vertical-offset="1607" max-vertical-offset="3051">
+          <caret line="83" column="44" selection-start-line="83" selection-start-column="44" selection-end-line="83" selection-end-column="44" />
+          <folding>
+            <element signature="e#3037#3038#0" expanded="true" />
+            <element signature="e#3067#3068#0" expanded="true" />
+            <element signature="e#3105#3106#0" expanded="true" />
+            <element signature="e#3143#3144#0" expanded="true" />
+            <element signature="e#3179#3180#0" expanded="true" />
+            <element signature="e#3214#3215#0" expanded="true" />
           </folding>
         </state>
       </provider>
