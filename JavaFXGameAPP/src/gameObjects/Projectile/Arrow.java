@@ -12,6 +12,7 @@ public class Arrow extends PlayerAssets {
 
     private int arrowWidth = 200 / 2;
     private int arrowHeight = 20;
+    public boolean isShot = false;
 
     private int damage = 5;
 
@@ -24,35 +25,33 @@ public class Arrow extends PlayerAssets {
 
     public void tick() {
         //Setting arrow's bounding box's bounds
+
         this.arrowBoundingBox.setBounds(arrowX, arrowY, arrowWidth, arrowHeight);
+        if(isShot){
+            System.out.println("strelq wwe");
+        }
+
     }
 
-    public void render(Graphics g) {
-        Graphics2D gr = (Graphics2D) g;
+    public void render(Graphics g, int y) {
+      Graphics2D gr = (Graphics2D) g;
 
-     // gr.setRenderingHint(
-     //         RenderingHints.KEY_RENDERING,
-     //         RenderingHints.VALUE_RENDER_QUALITY);
+      gr.setRenderingHint(
+              RenderingHints.KEY_RENDERING,
+              RenderingHints.VALUE_RENDER_QUALITY);
 
-     // int cx = 0;
-     // int cy = arrowSprite.getHeight() / 2;
-     // AffineTransform oldAT = gr.getTransform();
-     // gr.translate(cx + this.arrowX, cy + this.arrowY);
-     // gr.rotate(MouseMoving.getImageAngleRad(this.arrowX, this.arrowY));
-     // gr.translate(-cx, -cy);
-     // gr.drawImage(arrowSprite, 0, 0, null);
-     // gr.setTransform(oldAT);
+        AffineTransform oldAT = gr.getTransform();
 
-     // //draw arrow bounding box and move it
-     // int bx = 0;
-     // int by = arrowSprite.getHeight() / 2;
-     // AffineTransform oldATB = gr.getTransform();
-     // gr.translate(bx + this.arrowX, by + this.arrowY);
-     // gr.rotate(MouseMoving.getImageAngleRad(this.arrowX, this.arrowY));
-     // gr.translate(-bx, -by);
-     // g.setColor(Color.BLUE);
-     // g.drawRect(bx-15, by - 5, this.arrowBoundingBox.width, this.arrowBoundingBox.height);
-     // gr.setTransform(oldAT);
+      gr.drawImage(arrowSprite, 90, y + 65, null);          //@TODO @var y hardoded // FIXME: 20.4.2016
+      /*
+      int bx = 0;
+      int by = arrowSprite.getHeight() / 2;
+      AffineTransform oldATB = gr.getTransform();
+      gr.translate(bx + this.arrowX, by + this.arrowY);
+      gr.rotate(MouseMoving.getImageAngleRad(this.arrowX, this.arrowY));
+      gr.translate(-bx, -by);
+      g.setColor(Color.BLUE);
+      g.drawRect(bx-15, by - 5, this.arrowBoundingBox.width, this.arrowBoundingBox.height);/
+      gr.setTransform(oldAT);*/
     }
-
 }
