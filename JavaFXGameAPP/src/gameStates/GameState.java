@@ -52,11 +52,11 @@ public class GameState extends State {
         returnInMenuButton = Assets.smallerButtons.crop(151, 338, 50, 52);
         exitButton = Assets.smallerButtons.crop(435,231,49,49);
         tauren[0][0] = new Tauren(1280, 200);
-      // spawn.addEnemies();
-     // towerOne = new Tower(83, 105, spawn.getEnemies());
-     // towerTwo = new Tower(83, 500, spawn.getEnemies());
-        towerOne = new Tower(83, 105, tauren);
-        towerTwo = new Tower(83, 500, tauren);
+        spawn.addEnemies();
+        towerOne = new Tower(83, 105, spawn.getEnemies());
+        towerTwo = new Tower(83, 500, spawn.getEnemies());
+       // towerOne = new Tower(83, 105, tauren);
+       // towerTwo = new Tower(83, 500, tauren);
         buildingEntities.add(wall);
         buildingEntities.add(towerOne);
         buildingEntities.add(towerTwo);
@@ -68,10 +68,10 @@ public class GameState extends State {
     @Override
     public void tick() {
 
-      //  this.spawn.tick(buildingEntities);
+        this.spawn.tick(buildingEntities);
 
         for (int i = 0; i < buildingEntities.size() ; i++) {
-            buildingEntities.get(i).tick();
+            buildingEntities.get(i).tick(spawn.getEnemies());
         }
         this.crossbow.tick();
         this.arrow.tick();
@@ -81,7 +81,7 @@ public class GameState extends State {
                 buildingEntities.remove(i);
             }
         }
-        tauren[0][0].tick(buildingEntities); //DEBUG
+        //tauren[0][0].tick(buildingEntities); //DEBUG
     }
 
     @Override
@@ -102,7 +102,7 @@ public class GameState extends State {
         this.graphics.drawImage(returnInMenuButton, 1160, 9, null);
         this.graphics.drawImage(exitButton, 1220, 12, null);
 
-       // this.spawn.render(this.graphics);
+        this.spawn.render(this.graphics);
 
         for (int i = 0; i < buildingEntities.size() ; i++) {
             buildingEntities.get(i).render(this.graphics);
@@ -110,7 +110,7 @@ public class GameState extends State {
         this.crossbow.render(this.graphics);
         this.arrow.render(this.graphics);
 
-        tauren[0][0].render(graphics); //DEBUG
+       // tauren[0][0].render(graphics); //DEBUG
 
         //End drawing
 

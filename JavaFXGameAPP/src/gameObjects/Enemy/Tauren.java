@@ -19,19 +19,19 @@ public class Tauren implements Enemy, EnemyEntity {
     private int x = 1280;            //position of character on canvas 1280
     private int y;            //..
 
-    private int health = 250;
+    private int health = 50;
     private int damage = 2;
     private int velocity = 3;        //speed
     private int goldWorth = 30;      //The reward when you kill the monster
 
-    private boolean isDead = false;
+    private boolean isAlive = true;
     private boolean isAttacking = false;
 
     private SpriteSheet taurenSprite = Assets.tauren;
     private int walkingHeight = 86;
     private int walkingWidth = 100;
     private int attackingHeight = 95;
-    private int attackingWidth = 100;
+    private int attackingWidth = 114;
     private int walkFrames = 4;                //walking frames in spritesheet
     private int attackFrames = 6;
     private int col = 0;                        //Spritesheet column
@@ -80,6 +80,9 @@ public class Tauren implements Enemy, EnemyEntity {
     @Override
     public void tick(LinkedList<BuildingEntity> buildingEntities){
 
+        if(health <= 0){
+            isAlive = false;
+        }
         //Check for collision and attack if true
         for (int i = 0; i < buildingEntities.size(); i++) {
             if (Physics.collision(this, buildingEntities.get(i))) {
@@ -109,10 +112,10 @@ public class Tauren implements Enemy, EnemyEntity {
             animation = walkLeft;
             x -= this.velocity;
         }
+        animation.update();
 
-    animation.update();
-
-
+        //Debug
+        System.out.println(health);
     }
 
     @Override
@@ -165,6 +168,11 @@ public class Tauren implements Enemy, EnemyEntity {
     @Override
     public Rectangle getBoundingBox() {
         return this.boundingBox;
+    }
+
+    @Override
+    public boolean isAlive() {
+        return isAlive;
     }
 
 

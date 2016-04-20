@@ -2,6 +2,7 @@ package gameObjects.PlayerAssets;
 
 import entities.BuildingEntity;
 import game.Game;
+import gameObjects.Enemy.Enemy;
 import graphics.Assets;
 import graphics.HealthBar;
 
@@ -31,7 +32,7 @@ public class CastleWall extends PlayerAssets implements BuildingEntity{
         this.healthBar = new HealthBar(0, 0, barWidth, barHeight, health);
     }
 
-    public void tick(){
+    public void tick(Enemy[][] enemies){
         this.boundingBox.setBounds(this.x, this.y, this.spriteWidth, this.spriteHeight);
         this.healthBar.tick(0, 0, health);
     }

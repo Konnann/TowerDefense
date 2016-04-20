@@ -1,5 +1,6 @@
 package gameObjects.Projectile;
 
+import entities.ProjectileEntity;
 import gameObjects.Enemy.Enemy;
 import graphics.Animation;
 import graphics.Assets;
@@ -7,37 +8,37 @@ import graphics.Assets;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class MagicAttack implements Projectile {
+public class MagicAttack implements ProjectileEntity {
 
     private Enemy target;
 
-    private int startX = 0;
-    private int startY = 0;
-    private int currentX = 0;
-    private int currentY = 0;
+    private double x = 0;
+    private double y = 0;
     private int endX = 0;
     private int endY = 0;
 
     private int spriteSide = 25;
 
-    private int damage = 2;
-    private int velocity = 2;
-    private double attackSpeed = 0.6;
+    private int damage = 25;
+    private double xVelocity = 0;
+    private double yVelocity = 0;
+    private double attackSpeed = 20;
 
     private BufferedImage[] sprites = new BufferedImage[2];
     private Animation animation;
 
     private Rectangle boundingBox;
 
+    private boolean targetIsHit = false;
+
     //create a projectile
     public MagicAttack (Enemy target,int startX, int startY, int endX, int endY){
-        this.startX = startX;
-        this.startY = startY;
-        this.currentX = startX;
-        this.currentX = startY;
+        this.x = startX;
+        this.y = startY;
         this.endX = endX;
         this.endY = endY;
         this.target = target;
+        calculateDirection();
         initialize();
     }
 
@@ -47,12 +48,27 @@ public class MagicAttack implements Projectile {
             sprites[i] = Assets.Magic.crop(0, 0, this.spriteSide, spriteSide);
         }
         this.animation = new Animation(sprites, 5);
+        this.boundingBox = new Rectangle((int)this.x, (int)this.y, spriteSide, spriteSide);
+
     }
 
     @Override
     public void tick() {
+       //endX = target.getX();
+       //endY = target.getY();
+        calculateDirection();
+        if(target != null) {
+            if (this.boundingBox.intersects(target.getBoundingBox())) {
+                this.targetIsHit = true;
+                target.takeDamage(damage);
+            }
+        }
+        this.x += xVelocity * attackSpeed;
+        this.y += yVelocity * attackSpeed;
+
+        this.boundingBox = new Rectangle((int)this.x, (int)this.y, spriteSide, spriteSide);
         this.animation.update();
-        this.boundingBox = new Rectangle(this.currentX, this.currentY, spriteSide, spriteSide);
+
     }
 
     @Override
@@ -61,23 +77,29 @@ public class MagicAttack implements Projectile {
         g.drawRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
 
 
-        g.drawImage(animation.getSprite(),currentX, currentY, null);
+        g.drawImage(animation.getSprite(),(int)x, (int)y, null);
     }
 
 
 
+    private void calculateDirection(){
+        double totalAllowedMovement = 1.0;
+        double xDistanceFromTarget = Math.abs(target.getX() - x);
+        double yDistanceFromTarget = Math.abs(target.getY() - y);
+        double totalDistanceFromTarget = xDistanceFromTarget + yDistanceFromTarget;
+        double xPercentOfMovement = xDistanceFromTarget / totalDistanceFromTarget;
+        this.xVelocity = xPercentOfMovement;
+        this.yVelocity = totalAllowedMovement - xPercentOfMovement;
 
-
-    @Override
-    public int getStartX() {
-        return startX;
+        if(target.getX() < x){
+            xVelocity *= -1;
+        }
+        if(target.getY() < y){
+            yVelocity *= -1;
+        }
     }
     @Override
-    public int getStartY() {
-        return startY;
-    }
-    @Override
-    public Rectangle getBoundingBox() {
+    public Rectangle getBounds() {
         return boundingBox;
     }
     public Enemy getTarget(){
@@ -89,6 +111,12 @@ public class MagicAttack implements Projectile {
     public int getEndY(){
         return endY;
     }
+    public boolean targetIsHit() {
+        return targetIsHit;
+    }
+
+
+
 
 
     // //Magic Initialization

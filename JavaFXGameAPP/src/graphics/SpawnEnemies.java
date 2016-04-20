@@ -17,7 +17,9 @@ public class SpawnEnemies {
     private File spawnEnemies = Assets.spawnEnemies;
 
     private Enemy[][] enemies;
+
     private int numberOfColumns;
+    private int numberOfRows;
 
 
     public SpawnEnemies() {
@@ -34,7 +36,13 @@ public class SpawnEnemies {
             }
 
         }
-
+       // for (int col = 0; col < numberOfColumns; col++) {
+       //     for (int row = 0; row < numberOfRows; row++) {
+       //         if(enemies[row][col].isAlive() == false){
+       //             enemies[row][col] = null;
+       //         }
+       //     }
+       // }
 
     }
 
@@ -71,6 +79,7 @@ public class SpawnEnemies {
                 //understands text file and puts enemy objects when it comes across their index letter
                 //T = tauren
                 for (int row = 0; row < 5; row++) {
+                    numberOfRows++;
                     for (int col = 0; col < c.length; col++) {
                         if (c[col] == 'T') {
                             enemies[row][col] = new Tauren(x, y);
@@ -93,6 +102,13 @@ public class SpawnEnemies {
 
     public Enemy[][] getEnemies(){
         return enemies;
+    }
+    public int getNumberOfColumns() {
+        return numberOfColumns;
+    }
+
+    public int getNumberOfRows() {
+        return numberOfRows;
     }
 }
 

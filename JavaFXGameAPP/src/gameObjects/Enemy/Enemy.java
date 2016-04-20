@@ -21,6 +21,7 @@ public interface Enemy {
     public int getX();
     public int getY();
     public Rectangle getBoundingBox();
+    public boolean isAlive();
 
 
 
