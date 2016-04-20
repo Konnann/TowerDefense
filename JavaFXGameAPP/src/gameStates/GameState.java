@@ -24,14 +24,13 @@ public class GameState extends State {
     private State gameState,menuState;
 
     private SpawnEnemies spawn = new SpawnEnemies();
+    private int waveIndex = 1;
     private CastleWall wall = new CastleWall();
     private Tower towerOne;
     private Tower towerTwo;
     private Crossbow crossbow = new Crossbow();
     private Arrow arrow = new Arrow();
     private BufferedImage pauseButton,returnInMenuButton,exitButton;
-    private PlayerAssets firstMagic = new PlayerAssets();
-    private PlayerAssets secondMagic = new PlayerAssets();
 
     public LinkedList<BuildingEntity> buildingEntities = new LinkedList<>();
 
@@ -52,7 +51,7 @@ public class GameState extends State {
         returnInMenuButton = Assets.smallerButtons.crop(151, 338, 50, 52);
         exitButton = Assets.smallerButtons.crop(435,231,49,49);
         tauren[0][0] = new Tauren(1280, 200);
-        spawn.addEnemies();
+        spawn.addEnemies(waveIndex);
         towerOne = new Tower(83, 105, spawn.getEnemies());
         towerTwo = new Tower(83, 500, spawn.getEnemies());
        // towerOne = new Tower(83, 105, tauren);
@@ -67,13 +66,20 @@ public class GameState extends State {
 
     @Override
     public void tick() {
-
+        if(spawn.allDead() == true){
+            waveIndex++;
+            spawn.addEnemies(waveIndex);
+            System.out.println("all dead GameState");
+        }
+        if(spawn.allWavesDefeated == false) {
         this.spawn.tick(buildingEntities);
+        }
 
         for (int i = 0; i < buildingEntities.size() ; i++) {
             buildingEntities.get(i).tick(spawn.getEnemies());
         }
         this.crossbow.tick();
+        this.arrow.tick();
 
         for (int i = 0; i < buildingEntities.size(); i++) {
             if(buildingEntities.get(i).getHealth() <= 0){
@@ -101,7 +107,11 @@ public class GameState extends State {
         this.graphics.drawImage(returnInMenuButton, 1160, 9, null);
         this.graphics.drawImage(exitButton, 1220, 12, null);
 
+        if(spawn.allWavesDefeated == false) {
         this.spawn.render(this.graphics);
+        }else if(spawn.allWavesDefeated == true) {
+            graphics.drawImage(Assets.youWin, 325, 77, 650, 154, null);
+        }
 
         for (int i = 0; i < buildingEntities.size() ; i++) {
             buildingEntities.get(i).render(this.graphics);

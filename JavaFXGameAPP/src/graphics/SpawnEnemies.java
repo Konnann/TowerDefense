@@ -20,6 +20,8 @@ public class SpawnEnemies {
 
     private int numberOfColumns;
     private int numberOfRows;
+    public boolean allWavesDefeated = false;
+
 
 
     public SpawnEnemies() {
@@ -36,14 +38,6 @@ public class SpawnEnemies {
             }
 
         }
-       // for (int col = 0; col < numberOfColumns; col++) {
-       //     for (int row = 0; row < numberOfRows; row++) {
-       //         if(enemies[row][col].isAlive() == false){
-       //             enemies[row][col] = null;
-       //         }
-       //     }
-       // }
-
     }
 
     public void render(Graphics g){
@@ -58,23 +52,37 @@ public class SpawnEnemies {
         }
     }
 
-    public void addEnemies() {
+    public void addEnemies(int waveIndex) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(spawnEnemies));
 
-            String[] wave = reader.readLine().split(" ");
-            int waveIndex = Integer.parseInt(wave[1]);
+            int y = 200;
+            int x = 1280;
 
             String line = reader.readLine();
 
+            while (line != null) {
+                if (line.equals("Wave " + waveIndex)) {
+                    break;
+                } else if (line.equals("All waves defeated")) {
+                    allWavesDefeated = true;
+                    break;
+                }
+                line = reader.readLine();
+            }
+
+            //String[] wave = reader.readLine().split(" ");
+            //int currentWaveIndex = Integer.parseInt(wave[1]);
+            if (allWavesDefeated == false) {
+                line = reader.readLine();
             char[] c = line.toCharArray();
-            int y = 200;
-            int x = 1280;
+
             this.numberOfColumns = c.length;
 
             enemies = new Enemy[5][c.length];
+                numberOfRows = 0;
 
-            while(line != null){
+                while (line != null) {
 
                 //understands text file and puts enemy objects when it comes across their index letter
                 //T = tauren
@@ -91,6 +99,13 @@ public class SpawnEnemies {
                     line = reader.readLine();
                     if (line != null) {
                         c = line.toCharArray();
+                    }
+                        if (line.equals("Wave End")) {
+                            break;
+                }
+            }
+                    if (line.equals("Wave End")) {
+                        break;
                     }
                 }
             }
@@ -109,6 +124,16 @@ public class SpawnEnemies {
 
     public int getNumberOfRows() {
         return numberOfRows;
+    }
+   public boolean allDead(){
+       for (int row = 0; row < numberOfRows; row++) {
+           for (int col = 0; col < numberOfColumns; col++) {
+               if(enemies[row][col] != null){
+                   return false;
+               }
+           }
+       }
+           return true;
     }
 }
 

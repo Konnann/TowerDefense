@@ -17,6 +17,7 @@ public class Assets {
     public static BufferedImage Arrow;
     public static SpriteSheet Magic;
     public static SpriteSheet Buttons,smallerButtons;
+    public static BufferedImage youWin;
 
     public static void init(){
 
@@ -32,6 +33,7 @@ public class Assets {
         Magic = new SpriteSheet(ImageLoader.loadImage("resources" + File.separator + "magicProjectile_25x25.png"));
         Buttons= new SpriteSheet(ImageLoader.loadImage("resources" + File.separator + "Button.png"));
         smallerButtons=new SpriteSheet(ImageLoader.loadImage("resources" + File.separator + "InGameButtons.png"));
+        youWin = ImageLoader.loadImage("resources" + File.separator + "you_win_650x154.png");
     }
 
 

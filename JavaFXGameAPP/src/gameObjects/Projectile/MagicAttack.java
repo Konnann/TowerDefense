@@ -19,7 +19,7 @@ public class MagicAttack implements ProjectileEntity {
 
     private int spriteSide = 25;
 
-    private int damage = 25;
+    private int damage = 50;
     private double xVelocity = 0;
     private double yVelocity = 0;
     private double attackSpeed = 20;

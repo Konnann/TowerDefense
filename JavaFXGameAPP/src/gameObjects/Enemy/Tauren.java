@@ -19,9 +19,10 @@ public class Tauren implements Enemy, EnemyEntity {
     private int x = 1280;            //position of character on canvas 1280
     private int y;            //..
 
-    private int health = 50;
+    private int health = 150;
     private int damage = 2;
     private int velocity = 3;        //speed
+
     private int goldWorth = 30;      //The reward when you kill the monster
 
     private boolean isAlive = true;
@@ -114,8 +115,6 @@ public class Tauren implements Enemy, EnemyEntity {
         }
         animation.update();
 
-        //Debug
-        System.out.println(health);
     }
 
     @Override
@@ -132,6 +131,13 @@ public class Tauren implements Enemy, EnemyEntity {
 
         this.isAttacking = false;
 
+    }
+
+    public void increaseStats(int health, int damage, int velocity, int goldWorth) {
+        this.health += health;
+        this.damage += damage;
+        this.velocity += velocity;
+        this.goldWorth += goldWorth;
     }
 
     @Override
@@ -174,14 +180,10 @@ public class Tauren implements Enemy, EnemyEntity {
     public boolean isAlive() {
         return isAlive;
     }
-
-
-    public void increaseStats(int health, int damage, int velocity, int goldWorth) {
-        this.health += health;
-        this.damage += damage;
-        this.velocity += velocity;
-        this.goldWorth += goldWorth;
+    public int getGoldWorth() {
+        return goldWorth;
     }
+
     public boolean intersects (CastleWall wall){
 
         if(this.boundingBox.intersects(wall.boundingBox)){
@@ -189,6 +191,7 @@ public class Tauren implements Enemy, EnemyEntity {
         }
         return false;
     }
+
 
    // public void setAttacking(boolean isAttacking) {
    //     this.isAttacking = isAttacking;

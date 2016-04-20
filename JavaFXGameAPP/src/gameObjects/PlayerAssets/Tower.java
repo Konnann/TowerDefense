@@ -73,10 +73,10 @@ public class Tower extends PlayerAssets implements BuildingEntity{
 
         //Update enemy list
         this.enemies = enemies;
-
+        if (enemies != null) {
         for (int col = 0; col < 12; col++) {
             for (int row = 0; row < 5; row++) {
-                if(enemies[row][col] != null) {
+                    if (enemies[row][col] != null) {
                     if (enemies[row][col].isAlive() == false) {
                         enemies[row][col] = null;
                     }
@@ -84,34 +84,38 @@ public class Tower extends PlayerAssets implements BuildingEntity{
             }
         }
 
+
         //Target enemy
-        if (!targeted){
+            if (!targeted) {
             target = acquireTarget();
         }
         //Shoot enemy
-        if(target != null && shoot){
+            if (target != null && shoot) {
             shoot(target, target.getX(), target.getY());
             shoot = false;
         }
         //check if target is alive
-        if(target == null || target.isAlive() == false){
+            if (target == null || target.isAlive() == false) {
             targeted = false;
         }
 
+
         //Update projectiles
-        if(projectiles != null) {
+            if (projectiles != null) {
             for (int i = 0; i < projectiles.size(); i++) {
                 projectiles.get(i).tick();
 
-                if(projectiles.get(i).targetIsHit() == true){
+                    if (projectiles.get(i).targetIsHit() == true) {
                     projectiles.remove(i);
                 }
             }
+        }
         }
 
         //Update Healthbar
         healthBar.tick(this.x, this.y - 10, this.health);
     }
+
 
 
     public void render(Graphics g) {
