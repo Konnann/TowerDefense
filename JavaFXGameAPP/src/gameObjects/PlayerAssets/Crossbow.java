@@ -1,49 +1,79 @@
 package gameObjects.PlayerAssets;
 
+import entities.ProjectileEntity;
 import game.Game;
 import game.MouseInput;
 import game.MouseMoving;
 import gameObjects.Projectile.Arrow;
 import graphics.Assets;
 
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Crossbow extends PlayerAssets {
 
-    private BufferedImage crossbowSprite = Assets.crossbow;
-    private Arrow arrow = new Arrow();
+    private BufferedImage crossbowSprite;
 
+    private int crossbowWidth;
+    private int crossbowHeight;
 
-    private int crossbowWidth = crossbowSprite.getWidth();
-    private int crossbowHeight = crossbowSprite.getWidth();
+    private int x;
+    private int y;
+    private int yPos;
 
-    private int x = -crossbowWidth / 2;
-    private int y = 260;
-    private int yPos = 260;
+    private Rectangle boundingBox;
+    private ArrayList<ProjectileEntity> projectiles;
 
-    public Rectangle boundingBox = new Rectangle(this.crossbowWidth, this.crossbowHeight);
+    private Timer timer;
+    private  ActionListener actionListener;
+
+    public static boolean isDragged;
+    private boolean isShooting;
 
     //Create the crossbow
     public Crossbow() {
-    }
+        this.crossbowWidth = 164;
+        this.crossbowHeight = 158;
 
-    public double getY() {
-        return this.y;
-    }
+        this.x = -crossbowWidth / 2;
+        this.y = 260;
+        this.yPos = 260;
 
-    public int getX() {
-        return this.x;
-    }
+        this.actionListener = e -> isShooting = true;
+        this.timer = new Timer(500, actionListener);
+        timer.start();
 
-    public int getYPos(){
-        return this.yPos;
+        this.boundingBox = new Rectangle (this.x, this.y, this.crossbowWidth, this.crossbowHeight);
+        crossbowSprite = Assets.crossbow;
+
+        this.projectiles = new ArrayList<ProjectileEntity>();
+        this.isShooting = false;
+
+
+
     }
 
     public void tick() {
+        this.yPos = this.calcY((int)MouseMoving.y - 300);
+
         this.boundingBox.setBounds(this.x, this.y, this.crossbowWidth, this.crossbowHeight);
-        this.arrow.tick();
+        System.out.println(MouseInput.mousePressed);
+        if(isShooting && isDragged || isShooting && MouseInput.mousePressed){
+            shoot();
+            isShooting = false;
+            isDragged = false;
+        }
+        for (ProjectileEntity projectile : projectiles) {
+            projectile.tick();
+        }
+
+
     }
 
     public void render(Graphics g) {
@@ -59,9 +89,12 @@ public class Crossbow extends PlayerAssets {
         gr.translate(cx + this.x, cy + this.y);
         gr.translate(-cx, -cy);
 
-        this.yPos = this.calcY((int)MouseMoving.y - 300);
 
-        this.arrow.render(g, this.yPos);
+        for (ProjectileEntity projectile : projectiles) {
+            projectile.render(g);
+        }
+
+      //  this.arrow.render(g, this.yPos);
 
         gr.drawImage(crossbowSprite, 0, this.yPos, null);
         gr.setTransform(oldAT);
@@ -80,5 +113,27 @@ public class Crossbow extends PlayerAssets {
 
         return ret;
     }
+    private void shoot(){
+        projectiles.add(new Arrow(this.yPos + 60));
+
+    }
+    public double getY() {
+        return this.y;
+    }
+
+    public int getX() {
+        return this.x;
+    }
+
+    public int getYPos(){
+        return this.yPos;
+    }
+
+    public void setShooting(boolean isShooting) {
+        this.isShooting = isShooting;
+    }
+
+
+
 
 }

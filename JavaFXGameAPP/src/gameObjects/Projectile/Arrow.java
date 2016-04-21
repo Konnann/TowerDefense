@@ -1,5 +1,6 @@
 package gameObjects.Projectile;
 
+import entities.ProjectileEntity;
 import game.MouseMoving;
 import gameObjects.PlayerAssets.PlayerAssets;
 import graphics.Assets;
@@ -8,41 +9,62 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
-public class Arrow extends PlayerAssets {
+public class Arrow extends PlayerAssets implements ProjectileEntity {
 
-    private int arrowWidth = 200 / 2;
-    private int arrowHeight = 20;
-    public boolean isShot = false;
+    private int arrowWidth;
+    private int arrowHeight;
 
-    private int damage = 5;
+    private int damage;
 
     private int arrowX = -10;
-    private int arrowY = 250 + 160 / 2 - 5;
+    private int arrowY;
+            //= 250 + 160 / 2 - 5;
     private BufferedImage arrowSprite = Assets.Arrow;
     private int arrowVelocity;
 
     public Rectangle arrowBoundingBox = new Rectangle(this.arrowWidth, this.arrowHeight);
 
-    public void tick() {
-        //Setting arrow's bounding box's bounds
+    public Arrow(int y){
+        this.arrowWidth = 100;
+        this.arrowHeight = 24;
 
-        this.arrowBoundingBox.setBounds(arrowX, arrowY, arrowWidth, arrowHeight);
-        if(isShot){
-            System.out.println("strelq wwe");
-        }
+        this.arrowVelocity = 30;
+        this.damage = 5;
+
+        this.arrowY = y;
+        this.arrowX = 0;
+
+        arrowBoundingBox = new Rectangle(this.arrowX, this.arrowY, this.arrowWidth, this.arrowHeight);
+
+        initialize();
+    }
+    @Override
+    public void initialize() {
 
     }
 
-    public void render(Graphics g, int y) {
-      Graphics2D gr = (Graphics2D) g;
+    public void tick() {
+        this.arrowX  += arrowVelocity;
+        //updating arrow's bounding box
+        this.arrowBoundingBox.setBounds(arrowX, arrowY, arrowWidth, arrowHeight);
 
-      gr.setRenderingHint(
-              RenderingHints.KEY_RENDERING,
-              RenderingHints.VALUE_RENDER_QUALITY);
 
-        AffineTransform oldAT = gr.getTransform();
 
-      gr.drawImage(arrowSprite, 90, y + 65, null);          //@TODO @var y hardoded // FIXME: 20.4.2016
+    }
+
+    public void render(Graphics g) {
+        g.drawImage(Assets.Arrow,arrowX, arrowY, arrowWidth, arrowHeight, null);
+
+
+     // Graphics2D gr = (Graphics2D) g;
+//
+     // gr.setRenderingHint(
+     //         RenderingHints.KEY_RENDERING,
+     //         RenderingHints.VALUE_RENDER_QUALITY);
+//
+     //   AffineTransform oldAT = gr.getTransform();
+//
+     //// gr.drawImage(arrowSprite, 90, y + 65, null);          //@TODO @var y hardcoded // FIXME: 20.4.2016
       /*
       int bx = 0;
       int by = arrowSprite.getHeight() / 2;
@@ -53,5 +75,15 @@ public class Arrow extends PlayerAssets {
       g.setColor(Color.BLUE);
       g.drawRect(bx-15, by - 5, this.arrowBoundingBox.width, this.arrowBoundingBox.height);/
       gr.setTransform(oldAT);*/
+    }
+
+    @Override
+    public Rectangle getBounds() {
+        return null;
+    }
+
+    @Override
+    public boolean targetIsHit() {
+        return false;
     }
 }

@@ -1,6 +1,7 @@
 package game;
 
 import display.Display;
+import gameObjects.PlayerAssets.Crossbow;
 import gameStates.State;
 import gameStates.StateManager;
 
@@ -14,13 +15,14 @@ import java.awt.image.BufferStrategy;
 public class MouseInput implements MouseListener {
 
 
+    public static boolean mousePressed;
 
     private State gameState,menuState;
 
     public MouseInput(State gameState,State menuState) {
-
-        this.gameState=gameState;
-        this.menuState=menuState;
+        this.gameState = gameState;
+        this.menuState = menuState;
+        this.mousePressed = false;
     }
 
     @Override
@@ -31,9 +33,11 @@ public class MouseInput implements MouseListener {
 
 
     public void mousePressed(MouseEvent e) {
+        Crossbow.isDragged = true;
+        this.mousePressed = true;
+
         int mx = e.getX();
         int my = e.getY();
-
 
         if (StateManager.getState() != gameState) {
 
@@ -77,18 +81,19 @@ public class MouseInput implements MouseListener {
                     }
                 }
                 //ExitButton
-                if (mx >= 1220 && mx <= 1269) {
-                    if (my >= 10 && my <= 59) {
-                        System.exit(0);
-                    }
-                }
+        if (mx >= 1220 && mx <= 1269) {
+            if (my >= 10 && my <= 59) {
+                System.exit(0);
             }
         }
     }
+}
+}
 
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
+@Override
+public void mouseReleased(MouseEvent e) {
+        Crossbow.isDragged = false;
+        this.mousePressed = false;
     }
 
     @Override

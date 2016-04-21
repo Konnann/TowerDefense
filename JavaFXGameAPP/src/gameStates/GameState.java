@@ -29,7 +29,6 @@ public class GameState extends State {
     private Tower towerOne;
     private Tower towerTwo;
     private Crossbow crossbow = new Crossbow();
-    private Arrow arrow = new Arrow();
     private BufferedImage pauseButton,returnInMenuButton,exitButton;
 
     public LinkedList<BuildingEntity> buildingEntities = new LinkedList<>();
@@ -79,7 +78,6 @@ public class GameState extends State {
             buildingEntities.get(i).tick(spawn.getEnemies());
         }
         this.crossbow.tick();
-        this.arrow.tick();
 
         for (int i = 0; i < buildingEntities.size(); i++) {
             if(buildingEntities.get(i).getHealth() <= 0){
@@ -117,7 +115,7 @@ public class GameState extends State {
             buildingEntities.get(i).render(this.graphics);
         }
         this.crossbow.render(this.graphics);
-        //this.arrow.render(this.graphics);
+
 
        // tauren[0][0].render(graphics); //DEBUG
 
