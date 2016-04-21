@@ -15,7 +15,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class Tower extends PlayerAssets implements BuildingEntity{
-    private int health = 1500;
+    private int health = 1600;
     private double attackSpeed = 1.0;
 
     private int towerWidth = 95;
@@ -51,14 +51,13 @@ public class Tower extends PlayerAssets implements BuildingEntity{
 
 
     //Create a tower
-    public Tower(int x, int y, Enemy[][] enemies) {
+    public Tower(int x, int y) {
         this.x = x;
         this.y = y;
         this.boundingBox = new Rectangle(this.x, this.y, this.towerWidth, this.towerHeight);
         this.healthBar = new HealthBar(this.x, this.y - 20, this.towerHealthBar.width, this.towerHealthBar.height, this.health);
         this.projectileX = x + 40;
         this.projectileY = y - 3;
-        this.enemies = enemies;
         this.targeted = false;
         this.shoot = false;
         this.rangeX = this.x;
@@ -84,7 +83,6 @@ public class Tower extends PlayerAssets implements BuildingEntity{
             }
         }
 
-
         //Target enemy
             if (!targeted) {
             target = acquireTarget();
@@ -102,14 +100,14 @@ public class Tower extends PlayerAssets implements BuildingEntity{
 
         //Update projectiles
             if (projectiles != null) {
-            for (int i = 0; i < projectiles.size(); i++) {
-                projectiles.get(i).tick();
+                for (int i = 0; i < projectiles.size(); i++) {
+                    projectiles.get(i).tick(this.enemies);
 
-                    if (projectiles.get(i).targetIsHit() == true) {
-                    projectiles.remove(i);
+                    if (projectiles.get(i).getTargetIsHit() == true) {
+                        projectiles.remove(i);
+                    }
                 }
             }
-        }
         }
 
         //Update Healthbar
@@ -124,14 +122,12 @@ public class Tower extends PlayerAssets implements BuildingEntity{
 
         //drawing bounding box for test
 
-        g.setColor(Color.red);
-        g.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
+        //g.setColor(Color.red);
+        //g.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
 
-        //drawing bounding box around the first tower as a rectangle, spreading ahead of the tower reaching a distance that's meant to be its range
-
-
-        g.setColor(Color.yellow);
-        g.drawRect(this.towerRange.x,this.towerRange.y,this.towerRange.width,this.towerRange.height);
+        //Tower range box
+        //g.setColor(Color.yellow);
+        //g.drawRect(this.towerRange.x,this.towerRange.y,this.towerRange.width,this.towerRange.height);
 
         //draw projectiles
         if(projectiles != null) {
@@ -144,7 +140,7 @@ public class Tower extends PlayerAssets implements BuildingEntity{
     }
 
     public void shoot(Enemy target, int endX, int endY){
-        projectiles.add(new MagicAttack(target, projectileX, projectileY, endX, endY));
+        projectiles.add(new MagicAttack(target, projectileX, projectileY));
 
     }
     private Enemy acquireTarget(){
@@ -169,7 +165,6 @@ public class Tower extends PlayerAssets implements BuildingEntity{
     private boolean isInRange(Enemy e){
 
         if (towerRange.intersects(e.getBoundingBox())) {
-            System.out.println("in range");
             return true;
         }
         return false;

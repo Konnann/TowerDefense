@@ -1,14 +1,18 @@
 package entities;
 
+import gameObjects.Enemy.Enemy;
+
 import java.awt.*;
 
 public interface ProjectileEntity {
 
-    public abstract void initialize();
-    public abstract void tick ();
+    public abstract void tick (Enemy[][] enemies);
     public abstract void render(Graphics g);
 
     public Rectangle getBounds();
-    public boolean targetIsHit();
+    public boolean getTargetIsHit();
+    public void setTargetIsHit(Boolean targetIsHit);
+
+    public int getDamage();
 
 }

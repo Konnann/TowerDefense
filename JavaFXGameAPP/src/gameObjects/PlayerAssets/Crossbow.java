@@ -4,8 +4,10 @@ import entities.ProjectileEntity;
 import game.Game;
 import game.MouseInput;
 import game.MouseMoving;
+import gameObjects.Enemy.Enemy;
 import gameObjects.Projectile.Arrow;
 import graphics.Assets;
+import graphics.SpawnEnemies;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,9 +37,13 @@ public class Crossbow extends PlayerAssets {
 
     public static boolean isDragged;
     private boolean isShooting;
+    private Enemy[][] enemies;
+    public boolean isActive;
+
 
     //Create the crossbow
     public Crossbow() {
+        this.isActive = true;
         this.crossbowWidth = 164;
         this.crossbowHeight = 158;
 
@@ -55,28 +61,42 @@ public class Crossbow extends PlayerAssets {
         this.projectiles = new ArrayList<ProjectileEntity>();
         this.isShooting = false;
 
-
-
     }
 
-    public void tick() {
+    public void tick(Enemy[][] enemies) {
+
+        if(!isActive) {
+            return;
+        }
+
+        //update enemyList
+        this.enemies = enemies;
         this.yPos = this.calcY((int)MouseMoving.y - 300);
 
         this.boundingBox.setBounds(this.x, this.y, this.crossbowWidth, this.crossbowHeight);
-        System.out.println(MouseInput.mousePressed);
         if(isShooting && isDragged || isShooting && MouseInput.mousePressed){
             shoot();
             isShooting = false;
             isDragged = false;
         }
-        for (ProjectileEntity projectile : projectiles) {
-            projectile.tick();
+
+        for (int i = 0; i < projectiles.size() ; i++) {
+            projectiles.get(i).tick(this.enemies);
+            //check if target is hit
+            if(projectiles.get(i).getTargetIsHit()){
+                projectiles.remove(i);
+            }
         }
+
+
 
 
     }
 
     public void render(Graphics g) {
+        if(!isActive) {
+            return;
+        }
         Graphics2D gr = (Graphics2D) g;
 
         gr.setRenderingHint(

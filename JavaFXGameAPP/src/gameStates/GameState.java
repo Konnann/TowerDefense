@@ -23,17 +23,14 @@ public class GameState extends State {
 
     private State gameState,menuState;
 
-    private SpawnEnemies spawn = new SpawnEnemies();
-    private int waveIndex = 1;
-    private CastleWall wall = new CastleWall();
-    private Tower towerOne;
-    private Tower towerTwo;
-    private Crossbow crossbow = new Crossbow();
+    private SpawnEnemies spawn;
+    private int waveIndex;
+    private CastleWall wall;
+    private Tower towerOne,towerTwo;
+    private Crossbow crossbow;
     private BufferedImage pauseButton,returnInMenuButton,exitButton;
 
-    public LinkedList<BuildingEntity> buildingEntities = new LinkedList<>();
-
-    private Enemy[][] tauren = new Enemy[1][1];//DEBUG
+    public LinkedList<BuildingEntity> buildingEntities;
 
     public GameState(Display display,BufferStrategy bufferStrategy,Graphics graphics) {
         this.display = display;
@@ -49,17 +46,20 @@ public class GameState extends State {
         pauseButton = Assets.smallerButtons.crop(15,340,49,48);
         returnInMenuButton = Assets.smallerButtons.crop(151, 338, 50, 52);
         exitButton = Assets.smallerButtons.crop(435,231,49,49);
-        tauren[0][0] = new Tauren(1280, 200);
+
+        waveIndex = 1;
+        spawn = new SpawnEnemies();
         spawn.addEnemies(waveIndex);
-        towerOne = new Tower(83, 105, spawn.getEnemies());
-        towerTwo = new Tower(83, 500, spawn.getEnemies());
-       // towerOne = new Tower(83, 105, tauren);
-       // towerTwo = new Tower(83, 500, tauren);
+
+        buildingEntities = new LinkedList<>();
+        wall = new CastleWall();
+        towerOne = new Tower(83, 105);
+        towerTwo = new Tower(83, 500);
+
         buildingEntities.add(wall);
         buildingEntities.add(towerOne);
         buildingEntities.add(towerTwo);
-
-
+        crossbow = new Crossbow();
 
     }
 
@@ -68,7 +68,6 @@ public class GameState extends State {
         if(spawn.allDead() == true){
             waveIndex++;
             spawn.addEnemies(waveIndex);
-            System.out.println("all dead GameState");
         }
         if(spawn.allWavesDefeated == false) {
         this.spawn.tick(buildingEntities);
@@ -77,14 +76,16 @@ public class GameState extends State {
         for (int i = 0; i < buildingEntities.size() ; i++) {
             buildingEntities.get(i).tick(spawn.getEnemies());
         }
-        this.crossbow.tick();
+        this.crossbow.tick(spawn.getEnemies());
 
         for (int i = 0; i < buildingEntities.size(); i++) {
             if(buildingEntities.get(i).getHealth() <= 0){
+                if(buildingEntities.get(i) instanceof CastleWall){
+                    crossbow.isActive = false;
+                }
                 buildingEntities.remove(i);
             }
         }
-        //tauren[0][0].tick(buildingEntities); //DEBUG
     }
 
     @Override
@@ -116,9 +117,6 @@ public class GameState extends State {
         }
         this.crossbow.render(this.graphics);
 
-
-       // tauren[0][0].render(graphics); //DEBUG
-
         //End drawing
 
         this.graphics.dispose();
@@ -129,4 +127,7 @@ public class GameState extends State {
         return buildingEntities;
     }
 
+    private Enemy[][] getEnemies(){
+        return spawn.getEnemies();
+    }
 }

@@ -40,9 +40,10 @@ public class CastleWall extends PlayerAssets implements BuildingEntity{
     public void render(Graphics g){
         g.drawImage(wallSprite, this.x, this.y, this.spriteWidth, this.spriteHeight, null );
         this.healthBar.render(g);
+
         //drawing bounding boxes for test
-        g.setColor(Color.red);
-        g.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
+        //g.setColor(Color.red);
+        //g.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
     }
 
     @Override

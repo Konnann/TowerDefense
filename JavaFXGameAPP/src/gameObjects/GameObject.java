@@ -1,6 +1,10 @@
 package gameObjects;
 
-public class GameObject {
-    //still don't know what should go here
+import java.awt.*;
 
+public abstract class GameObject {
+    public int x;
+    public int y;
+
+    public Rectangle boundingBox;
 }

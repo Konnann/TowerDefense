@@ -2,7 +2,6 @@ package gameObjects.Enemy;
 import entities.BuildingEntity;
 import entities.EnemyEntity;
 import entities.Physics;
-import gameObjects.PlayerAssets.PlayerAssets;
 import graphics.Animation;
 import gameObjects.PlayerAssets.CastleWall;
 import graphics.Assets;
@@ -17,10 +16,10 @@ public class Tauren implements Enemy, EnemyEntity {
 
     private Graphics graphics;
     private int x = 1280;            //position of character on canvas 1280
-    private int y;            //..
+    private int y;                  //..
 
-    private int health = 150;
-    private int damage = 2;
+    private int health = 200;
+    private int damage = 7;
     private int velocity = 3;        //speed
 
     private int goldWorth = 30;      //The reward when you kill the monster
@@ -84,9 +83,9 @@ public class Tauren implements Enemy, EnemyEntity {
         if(health <= 0){
             isAlive = false;
         }
-        //Check for collision and attack if true
+        //Check for enemyCollision and attack if true
         for (int i = 0; i < buildingEntities.size(); i++) {
-            if (Physics.collision(this, buildingEntities.get(i))) {
+            if (Physics.enemyCollision(this, buildingEntities.get(i))) {
                 this.isAttacking = true;
                 if (attack.getCurrentFrame() == 2) {
                     buildingEntities.get(i).takeDamage(this.damage);
@@ -123,8 +122,8 @@ public class Tauren implements Enemy, EnemyEntity {
             graphics.drawImage(animation.getSprite(), x, y, null);
 
         //Test draw bounding boxes
-        graphics.setColor(Color.red);
-        graphics.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
+       // graphics.setColor(Color.red);
+       // graphics.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
 
         //draw healthbar
         this.healthBar.render(this.graphics);

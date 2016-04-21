@@ -1,89 +1,100 @@
 package gameObjects.Projectile;
 
+import entities.Physics;
 import entities.ProjectileEntity;
-import game.MouseMoving;
+import gameObjects.Enemy.Enemy;
 import gameObjects.PlayerAssets.PlayerAssets;
 import graphics.Assets;
 
 import java.awt.*;
-import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 public class Arrow extends PlayerAssets implements ProjectileEntity {
 
-    private int arrowWidth;
-    private int arrowHeight;
+    private int width;
+    private int height;
 
     private int damage;
 
-    private int arrowX = -10;
-    private int arrowY;
-            //= 250 + 160 / 2 - 5;
-    private BufferedImage arrowSprite = Assets.Arrow;
-    private int arrowVelocity;
+    private int x;
+    private int y;
+    private int velocity;
 
-    public Rectangle arrowBoundingBox = new Rectangle(this.arrowWidth, this.arrowHeight);
+    private BufferedImage arrowSprite;
 
+    public Rectangle boundingBox;
+
+    //Enemy[][] enemies;
+
+    private boolean targetIsHit;
+
+    //Create arrow
     public Arrow(int y){
-        this.arrowWidth = 100;
-        this.arrowHeight = 24;
+        this.width = 100;
+        this.height = 24;
 
-        this.arrowVelocity = 30;
+        this.velocity = 30;
         this.damage = 5;
 
-        this.arrowY = y;
-        this.arrowX = 0;
+        this.y = y;
+        this.x = 0;
 
-        arrowBoundingBox = new Rectangle(this.arrowX, this.arrowY, this.arrowWidth, this.arrowHeight);
+        this.boundingBox = new Rectangle(this.x, this.y, this.width, this.height);
+        this.arrowSprite = Assets.Arrow;
 
-        initialize();
-    }
-    @Override
-    public void initialize() {
-
+        this.targetIsHit = false;
     }
 
-    public void tick() {
-        this.arrowX  += arrowVelocity;
+    public void tick(Enemy[][] enemies) {
+        this.x += velocity;
+
         //updating arrow's bounding box
-        this.arrowBoundingBox.setBounds(arrowX, arrowY, arrowWidth, arrowHeight);
+        this.boundingBox.setBounds(x, y, width, height);
 
+        //Check for enemyCollision and attack if true
+        if (enemies != null) {
+            for (int i = 0; i < enemies.length; i++) {
+                for (int j = 0; j < enemies[i].length; j++) {
+                    if (enemies[i][j] != null) {
+                        if (this.boundingBox.intersects(enemies[i][j].getBoundingBox())) {
+                            this.targetIsHit = true;
+                            enemies[i][j].takeDamage(this.damage);
+                        }
+                    }
+                }
+            }
+        }
 
 
     }
 
     public void render(Graphics g) {
-        g.drawImage(Assets.Arrow,arrowX, arrowY, arrowWidth, arrowHeight, null);
+        g.drawImage(Assets.Arrow, x, y, width, height, null);
 
+       // g.setColor(Color.blue);
+       // g.drawRect(this.boundingBox.x, this.boundingBox.y, this.boundingBox.width, this.boundingBox.height);
 
-     // Graphics2D gr = (Graphics2D) g;
-//
-     // gr.setRenderingHint(
-     //         RenderingHints.KEY_RENDERING,
-     //         RenderingHints.VALUE_RENDER_QUALITY);
-//
-     //   AffineTransform oldAT = gr.getTransform();
-//
-     //// gr.drawImage(arrowSprite, 90, y + 65, null);          //@TODO @var y hardcoded // FIXME: 20.4.2016
-      /*
-      int bx = 0;
-      int by = arrowSprite.getHeight() / 2;
-      AffineTransform oldATB = gr.getTransform();
-      gr.translate(bx + this.arrowX, by + this.arrowY);
-      gr.rotate(MouseMoving.getImageAngleRad(this.arrowX, this.arrowY));
-      gr.translate(-bx, -by);
-      g.setColor(Color.BLUE);
-      g.drawRect(bx-15, by - 5, this.arrowBoundingBox.width, this.arrowBoundingBox.height);/
-      gr.setTransform(oldAT);*/
     }
 
     @Override
     public Rectangle getBounds() {
-        return null;
+        return this.boundingBox;
     }
 
     @Override
-    public boolean targetIsHit() {
-        return false;
+    public boolean getTargetIsHit() {
+        return targetIsHit;
     }
+
+    @Override
+    public void setTargetIsHit(Boolean targetIsHit) {
+        this.targetIsHit = targetIsHit;
+    }
+
+    @Override
+    public int getDamage() {
+        return damage;
+    }
+
+
 }
