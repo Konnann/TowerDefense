@@ -114,6 +114,11 @@ public class MagicAttack implements ProjectileEntity {
         this.targetIsHit = targetIsHit;
     }
 
+    @Override
+    public boolean getIsOutsideDisplay() {
+        return false;
+    }
+
     public Enemy getTarget(){
         return target;
     }

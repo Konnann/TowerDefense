@@ -12,6 +12,7 @@ public interface ProjectileEntity {
     public Rectangle getBounds();
     public boolean getTargetIsHit();
     public void setTargetIsHit(Boolean targetIsHit);
+    public boolean getIsOutsideDisplay();
 
     public int getDamage();
 

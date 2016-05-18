@@ -27,6 +27,7 @@ public class Arrow extends PlayerAssets implements ProjectileEntity {
     //Enemy[][] enemies;
 
     private boolean targetIsHit;
+    private boolean isOutsideDisplay;
 
     //Create arrow
     public Arrow(int y){
@@ -34,7 +35,7 @@ public class Arrow extends PlayerAssets implements ProjectileEntity {
         this.height = 24;
 
         this.velocity = 30;
-        this.damage = 5;
+        this.damage = 50;
 
         this.y = y;
         this.x = 0;
@@ -43,10 +44,14 @@ public class Arrow extends PlayerAssets implements ProjectileEntity {
         this.arrowSprite = Assets.Arrow;
 
         this.targetIsHit = false;
+        this.isOutsideDisplay = false;
     }
 
     public void tick(Enemy[][] enemies) {
         this.x += velocity;
+        if (this.x > 1280){
+            isOutsideDisplay = true;
+        }
 
         //updating arrow's bounding box
         this.boundingBox.setBounds(x, y, width, height);
@@ -94,6 +99,9 @@ public class Arrow extends PlayerAssets implements ProjectileEntity {
     @Override
     public int getDamage() {
         return damage;
+    }
+    public boolean getIsOutsideDisplay(){
+        return isOutsideDisplay;
     }
 
 

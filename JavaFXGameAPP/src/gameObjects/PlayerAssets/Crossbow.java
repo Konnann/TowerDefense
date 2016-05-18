@@ -49,7 +49,6 @@ public class Crossbow extends PlayerAssets {
 
         this.x = -crossbowWidth / 2;
         this.y = 260;
-        this.yPos = 260;
 
         this.actionListener = e -> isShooting = true;
         this.timer = new Timer(500, actionListener);
@@ -65,13 +64,20 @@ public class Crossbow extends PlayerAssets {
 
     public void tick(Enemy[][] enemies) {
 
+        if((int)MouseMoving.y < 470 && (int)MouseMoving.y > 160) {
+            this.y = (int) MouseMoving.y - 60;
+        }else if((int)MouseMoving.y < 160){
+            this.y = 160 - 60;
+        }else if((int)MouseMoving.y > 470){
+            this.y = 490 - 60;
+        }
+
         if(!isActive) {
             return;
         }
 
         //update enemyList
         this.enemies = enemies;
-        this.yPos = this.calcY((int)MouseMoving.y - 300);
 
         this.boundingBox.setBounds(this.x, this.y, this.crossbowWidth, this.crossbowHeight);
         if(isShooting && isDragged || isShooting && MouseInput.mousePressed){
@@ -83,7 +89,7 @@ public class Crossbow extends PlayerAssets {
         for (int i = 0; i < projectiles.size() ; i++) {
             projectiles.get(i).tick(this.enemies);
             //check if target is hit
-            if(projectiles.get(i).getTargetIsHit()){
+            if(projectiles.get(i).getTargetIsHit() || projectiles.get(i).getIsOutsideDisplay()){
                 projectiles.remove(i);
             }
         }
@@ -97,44 +103,16 @@ public class Crossbow extends PlayerAssets {
         if(!isActive) {
             return;
         }
-        Graphics2D gr = (Graphics2D) g;
-
-        gr.setRenderingHint(
-                RenderingHints.KEY_RENDERING,
-                RenderingHints.VALUE_RENDER_QUALITY);
-
-        int cx = crossbowSprite.getWidth() / 2 - 20;
-        int cy = crossbowSprite.getHeight() / 2;
-        AffineTransform oldAT = gr.getTransform();
-        gr.translate(cx + this.x, cy + this.y);
-        gr.translate(-cx, -cy);
-
 
         for (ProjectileEntity projectile : projectiles) {
             projectile.render(g);
         }
 
-      //  this.arrow.render(g, this.yPos);
-
-        gr.drawImage(crossbowSprite, 0, this.yPos, null);
-        gr.setTransform(oldAT);
-
-
+        g.drawImage(crossbowSprite, this.x, this.y, null);
     }
 
-    private int calcY(int y){
-        int maxTopRange = Game.getHeight() -  575;
-        int ret = y;
-        if(y < 0 && Math.abs(y) > maxTopRange){
-            ret = -maxTopRange;
-        }else if(y > 0 && Math.abs(y) > maxTopRange){
-            ret = 170;
-        }
-
-        return ret;
-    }
     private void shoot(){
-        projectiles.add(new Arrow(this.yPos + 60));
+        projectiles.add(new Arrow(this.y + 60));
 
     }
     public double getY() {
